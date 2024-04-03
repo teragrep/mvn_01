@@ -36,8 +36,8 @@
           <include>.gitattributes</include>
           <include>.gitignore</include>
         </includes>
-        <trimTrailingWhitespace>true</trimTrailingWhitespace>
-        <endWithNewline>true</endWithNewline>
+        <trimTrailingWhitespace></trimTrailingWhitespace>
+        <endWithNewline></endWithNewline>
         <indent>
           <tabs>true</tabs>
           <spacesPerTab>4</spacesPerTab>
