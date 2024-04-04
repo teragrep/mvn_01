@@ -16,17 +16,17 @@ The rat plugin is used to enforce existence of correct licenses. Included are an
     <families>
       <family>
         <id>Teragrep</id>
-        <name><!-- License name here --></name>
+        <name>Teragrep Affero General Public License v3</name>
       </family>
     </families>
     <licenses>
       <license>
         <all>
-        <copyright>
-          <owner><!-- Who is the owner --></owner>
-          <start><!-- Copyright starting year --></start>
-        </copyright>
-        <text><!-- Which license text to search for, for example "My super component xyz" --></text>
+          <copyright>
+            <owner>Suomen Kanuuna Oy</owner>
+            <start>2024</start>
+          </copyright>
+          <text>https://github.com/teragrep/teragrep/blob/main/LICENSE</text>
         </all>
         <family>Teragrep</family>
       </license>
