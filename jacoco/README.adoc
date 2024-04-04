@@ -1,6 +1,6 @@
 = JaCoCo Java Code Coverage Library
 
-Jacoco helps to find issues in java code
+jacoco provides test coverity reports into target/site/jacoco/index.html
 
 .pom.xml
 [source,xml]
