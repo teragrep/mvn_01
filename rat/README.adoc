@@ -16,7 +16,7 @@ The rat plugin is used to enforce existence of correct licenses. Included are an
     <families>
       <family>
         <id>Teragrep</id>
-        <name>Teragrep Affero General Public License v3</name>
+        <name>Affero General Public License v3</name>
       </family>
     </families>
     <licenses>
