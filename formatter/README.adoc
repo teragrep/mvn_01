@@ -6,7 +6,7 @@
   <artifactId>spotless-maven-plugin</artifactId>
   <version>2.43.0</version>
   <configuration>
-    <java>
+=   <java>
       <eclipse>
         <file>${project.basedir}/eclipse-java-formatter.xml</file>
         <version>4.10.0</version>

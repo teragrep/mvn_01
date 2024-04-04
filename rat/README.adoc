@@ -1,0 +1,63 @@
+= The Rat Maven Plugin
+
+The rat plugin is used to enforce existence of correct licenses. Included are an example set of commonly used excludes
+
+.pom.xml
+[source,xml]
+----
+<plugin>
+  <groupId>org.apache.rat</groupId>
+  <artifactId>apache-rat-plugin</artifactId>
+  <version>0.16.1</version>
+  <inherited>false</inherited>
+  <configuration>
+    <addDefaultLicenseMatchers>false</addDefaultLicenseMatchers>
+    <addDefaultLicenses>false</addDefaultLicenses>
+    <families>
+      <family>
+        <id>Teragrep</id>
+        <name><!-- License name here --></name>
+      </family>
+    </families>
+    <licenses>
+      <license>
+        <all>
+        <copyright>
+          <owner><!-- Who is the owner --></owner>
+          <start><!-- Copyright starting year --></start>
+        </copyright>
+        <text><!-- Which license text to search for, for example "My super component xyz" --></text>
+        </all>
+        <family>Teragrep</family>
+      </license>
+    </licenses>
+    <consoleOutput>true</consoleOutput>
+    <excludeSubProjects>false</excludeSubProjects>
+    <excludes>
+    <!-- git -->
+    <exclude>.git/**</exclude>
+    <exclude>.gitattributes</exclude>
+    <exclude>.gitignore</exclude>
+    <exclude>.gitmodules</exclude>
+    <!-- ci -->
+    <exclude>.github/workflows/*</exclude>
+    <exclude>.github/ISSUE_TEMPLATE/*</exclude>
+    <exclude>toolchains.xml</exclude>
+    <exclude>settings.xml</exclude>
+    <!-- maven -->
+    <exclude>pom.xml</exclude>
+    <exclude>eclipse-java-formatter.xml</exclude>
+    <!-- readme -->
+    <exclude>README.adoc</exclude>
+    </excludes>
+  </configuration>
+  <executions>
+    <execution>
+    <goals>
+      <goal>check</goal>
+    </goals>
+    <phase>test</phase>
+    </execution>
+  </executions>
+</plugin>
+----
