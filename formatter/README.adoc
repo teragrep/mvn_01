@@ -4,7 +4,10 @@
 <plugin>
   <groupId>com.diffplug.spotless</groupId>
   <artifactId>spotless-maven-plugin</artifactId>
+  <!-- Java 11+ -->
   <version>2.43.0</version>
+  <!-- Java 8 -->
+  <version>2.30.0</version>
   <configuration>
     <java>
       <eclipse>
