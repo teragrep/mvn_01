@@ -1,3 +1,15 @@
+# Formatter plugin
+
+## Usage
+
+Checks are automatically done once included to project.
+
+Provide the license information file as `license-header` in the repository root.
+
+You can apply the spotless plugin fixes automatically with `mvn spotless:apply`
+
+### Add the following to pom.xml
+
 .pom.xml
 [source,xml]
 ----
@@ -6,8 +18,8 @@
   <artifactId>spotless-maven-plugin</artifactId>
   <!-- Java 11+ -->
   <version>2.43.0</version>
-  <!-- Java 8 -->
-  <version>2.30.0</version>
+  <!-- With Java 8 -->
+  <!-- <version>2.30.0</version> -->
   <configuration>
     <java>
       <eclipse>

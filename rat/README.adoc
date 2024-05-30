@@ -1,6 +1,12 @@
-= The Rat Maven Plugin
+# The Rat Maven Plugin
 
-The rat plugin is used to enforce existence of correct licenses. Included are an example set of commonly used excludes
+## Usage
+
+Checks are automatically done once included to project.
+
+Included are an example set of commonly used excludes
+
+## Add the following to pom.xml
 
 .pom.xml
 [source,xml]
