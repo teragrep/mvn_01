@@ -1,6 +1,10 @@
-= Maven Enforcer Plugin
+# Maven Enforcer Plugin
 
-Enforces maven plugin version and such
+## Usage
+
+Checks are automatically done once included to project.
+
+## Add the following to pom.xml
 
 .pom.xml
 [source,xml]

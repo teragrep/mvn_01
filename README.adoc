@@ -1,3 +1,17 @@
 # project-archetype
 
-Project archetype for Teragrep projects
+Project archetype for Teragrep projects.
+
+The `pom.xml` examples are added to the main `pom.xml` file under `<plugins>..</plugins>` section.
+
+## formatter
+
+Will enforce and automatically apply proper formatting and licensing information to project files.
+
+## rat
+
+The rat plugin is used to enforce existence of correct licenses. Use with formatter.
+
+## enforcer
+
+The enforcer plugin forces minimum maven version to be used with the project.
