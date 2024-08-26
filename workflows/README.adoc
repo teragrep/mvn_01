@@ -1,0 +1,9 @@
+= Github Workflows
+
+== Reusable workflows
+
+These workflows can be used as-is without modifications to enable certain functionality
+
+== Workflow templates
+
+These workflows are commonly used but might require some per-project tweaks
