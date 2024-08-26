@@ -1,9 +1,23 @@
-= Github Workflows
+= Github workflows
 
-== Reusable workflows
+== ci.yaml
 
-These workflows can be used as-is without modifications to enable certain functionality
+Adds automatic Coverity uploading.
 
-== Workflow templates
+Requires the following settings to be enabled for the repository:
 
-These workflows are commonly used but might require some per-project tweaks
+vars:
+
+ - COVERITY_PROJECT_URL_NAME
+
+Secrets:
+
+  - COVERITY_TOKEN
+
+Rest of the secrets and environment comes from the organization and do not need to be set here.
+
+== upload_release.yaml
+
+Will create a GitHub and Maven Central release from maven project when new version gets released.
+
+You might have to customize java version and maven arguments depending on the project.
