@@ -31,8 +31,7 @@ https://maven.apache.org/enforcer/enforcer-rules/requirePluginVersions.html[Docu
 
 Enforces that all plugins have specific version set.
 
-`unCheckedPluginList` contains bunch of enabled-even-if-not-in-pom plugins that will inherit certain versions. Add new implicitly loaded plugins to the list if necesasry.
-
+`unCheckedPluginList` contains bunch of enabled-even-if-not-in-pom plugins that will inherit certain versions. Add new implicitly loaded plugins to the list if necessary.
 
 === requireNoRepositories
 
