@@ -1,10 +1,46 @@
-# Maven Enforcer Plugin
+= Maven Enforcer Plugin
 
-## Usage
+== Usage
 
 Checks are automatically done once included to project.
 
-## Add the following to pom.xml
+=== requireMavenVersion
+
+https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html[Documentation]
+
+Uses https://maven.apache.org/enforcer/enforcer-rules/versionRanges.html[Version Range Specification]
+
+Enforces specific maven version to be used. Default `3.2.5` is good and usually doesn't need to be changed.
+
+=== requireJavaVersion
+https://maven.apache.org/enforcer/enforcer-rules/requireJavaVersion.html[Documentation]
+
+Uses https://maven.apache.org/enforcer/enforcer-rules/versionRanges.html[Version Range Specification]
+
+Enforce explicit Java version to execute project with. Default `[1.8,1.9)` range enforces only Java 8 to be accepted.
+
+=== banDynamicVersions
+
+https://maven.apache.org/enforcer/enforcer-rules/banDynamicVersions.html[Documentation]
+
+Bans dynamic versions.
+
+=== requirePluginVersions
+
+https://maven.apache.org/enforcer/enforcer-rules/requirePluginVersions.html[Documentation]
+
+Enforces that all plugins have specific version set.
+
+`unCheckedPluginList` contains bunch of enabled-even-if-not-in-pom plugins that will inherit certain versions. Add new implicitly loaded plugins to the list if necesasry.
+
+
+=== requireNoRepositories
+
+https://maven.apache.org/enforcer/enforcer-rules/requireNoRepositories.html[Documentation]
+
+We do not support third party repositories by default due to code management and potential security issues.
+
+== Add the following to pom.xml
 
 .pom.xml
 [source,xml]
@@ -15,11 +51,7 @@ Checks are automatically done once included to project.
   <version>3.4.1</version>
   <executions>
     <execution>
-      <id>enforce</id>
-      <phase>none</phase>
-    </execution>
-    <execution>
-      <id>enforce-maven</id>
+      <id>enforce-settings</id>
       <goals>
         <goal>enforce</goal>
       </goals>
@@ -28,9 +60,38 @@ Checks are automatically done once included to project.
           <requireMavenVersion>
             <version>3.2.5</version>
           </requireMavenVersion>
+          <requireJavaVersion>
+            <version>[1.8,1.9)</version>
+          </requireJavaVersion>
+          <banDynamicVersions/>
+          <requirePluginVersions>
+            <message>All plugins are required to contain specific version.</message>
+            <unCheckedPluginList>org.apache.maven.plugins:maven-site-plugin,org.apache.maven.plugins:maven-resources-plugin,org.apache.maven.plugins:maven-clean-plugin,org.apache.maven.plugins:maven-install-plugin,org.apache.maven.plugins:maven-deploy-plugin</unCheckedPluginList>
+          </requirePluginVersions>
+          <requireNoRepositories>
+            <message>Do not use any external repositories.</message>
+          </requireNoRepositories>
         </rules>
       </configuration>
     </execution>
   </executions>
 </plugin>
+----
+
+== Example output
+
+.Example of multiple rule failures
+[source,bash]
+----
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:3.4.1:enforce (enforce-settings) on project pth_10:
+[ERROR] Rule 1: org.apache.maven.enforcer.rules.version.RequireJavaVersion failed with message:
+[ERROR] Detected JDK version 17.0.12 (JAVA_HOME=/usr/lib/jvm/java-17-openjdk-17.0.12.0.7-2.fc40.x86_64) is not in the allowed range [1.8,1.9).
+[ERROR] Rule 2: org.apache.maven.enforcer.rules.dependency.BanDynamicVersions failed with message:
+[ERROR] Found 1 dependency with dynamic versions.
+[ERROR] Dependency org.apache.kafka:kafka-clients:jar:LATEST (test) is referenced with a banned dynamic version LATEST
+[ERROR] Rule 3: org.apache.maven.enforcer.rules.RequirePluginVersions failed with message:
+[ERROR] Some plugins are missing valid versions or depend on Maven 3.9.6 defaults (LATEST, RELEASE, SNAPSHOT, TIMESTAMP SNAPSHOT as plugin version are not allowed)
+[ERROR]    org.apache.maven.plugins:maven-source-plugin.        The version currently in use is 3.3.1 via super POM or default lifecycle bindings
+[ERROR] All plugins are required to contain specific version.
+[ERROR] -> [Help 1]
 ----
