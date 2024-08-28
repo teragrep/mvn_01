@@ -13,6 +13,7 @@ Uses https://maven.apache.org/enforcer/enforcer-rules/versionRanges.html[Version
 Enforces specific maven version to be used. Default `3.2.5` is good and usually doesn't need to be changed.
 
 === requireJavaVersion
+
 https://maven.apache.org/enforcer/enforcer-rules/requireJavaVersion.html[Documentation]
 
 Uses https://maven.apache.org/enforcer/enforcer-rules/versionRanges.html[Version Range Specification]
