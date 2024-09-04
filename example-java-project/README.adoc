@@ -1,5 +1,7 @@
 = Example Java Project
 
+This project assumes you have working maven setup. Goal is to run `mvn clean package` to build the project and then to run the code to see the secret message.
+
 Contains the following maven plugins and example issues with them:
 
 - enforcer
@@ -31,7 +33,7 @@ Project requires all plugin versions to be set but `maven-surefire-plugin` is no
 
 Project requires Java 11 which is generally not the default Java version.
 
-You can force certain version by using `JAVA_HOME` environment variable when running Maven: `JAVA_HOME=/usr/lib/jvm/java-11-openjdk mvn clean package`
+You can force certain version by using `JAVA_HOME` environment variable when running Maven, for example: `JAVA_HOME=/usr/lib/jvm/java-11-openjdk mvn clean package`
 
 === Rat
 
