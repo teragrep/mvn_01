@@ -161,8 +161,6 @@
             <exclude>eclipse-java-formatter.xml</exclude>
             <!-- readme -->
             <exclude>README.adoc</exclude>
-            <!-- special for this project -->
-            <exclude>src/main/assembly/jar-with-dependencies.xml</exclude>
           </excludes>
         </configuration>
         <executions>

@@ -12,7 +12,7 @@ Contains the following maven plugins and example issues with them:
 
 === Enforcer
 
-Project requires all plugin versions to be set but `maven-surefire-plugin` is not set. You can fix it by making sure the following information is in pom.xml.
+Project requires all plugin versions to be set but `maven-surefire-plugin` is not set. You can fix it by making sure the version information is in `pom.xml` under `org.apache.maven.plugins:maven-surefire-plugin` plugin definition.
 
 .pom.xml
 [source,xml]
@@ -35,9 +35,36 @@ You can force certain version by using `JAVA_HOME` environment variable when run
 
 === Rat
 
-It requires `Main.java` to contain licensing information which is intentionally not set by default.
+It requires all files to either contain licensing information or to be excluded.
 
-This can be fixed by running steps specified in `Formatter` section.
+The file `src/main/assembly/jar-with-dependencies.xml` needs to be excluded. You can fix it by making sure the following information is in `pom.xml` under `org.apache.rat:apache-rat-plugin` plugin configuration.
+
+.pom.xml
+[source,xml]
+----
+ <excludes>
+    <!-- git -->
+    <exclude>.git/**</exclude>
+    <exclude>.gitattributes</exclude>
+    <exclude>.gitignore</exclude>
+    <exclude>.gitmodules</exclude>
+    <!-- ci -->
+    <exclude>.github/workflows/*</exclude>
+    <exclude>.github/ISSUE_TEMPLATE/*</exclude>
+    <exclude>.github/PULL_REQUEST_TEMPLATE/*</exclude>
+    <exclude>toolchains.xml</exclude>
+    <exclude>settings.xml</exclude>
+    <!-- maven -->
+    <exclude>pom.xml</exclude>
+    <exclude>eclipse-java-formatter.xml</exclude>
+    <!-- readme -->
+    <exclude>README.adoc</exclude>
+    <!-- add this line -->
+    <exclude>src/main/assembly/jar-with-dependencies.xml</exclude>
+</excludes>
+----
+
+You can insert license to the file `Main.java` automatically by following instructions in the `Formatter` section.
 
 === Formatter
 
