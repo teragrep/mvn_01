@@ -1,6 +1,6 @@
-# Formatter plugin
+= Formatter (spotless) plugin
 
-## Usage
+== Usage
 
 Checks are automatically done once included to project.
 
@@ -8,7 +8,7 @@ Provide the license information file as `license-header` in the repository root.
 
 You can apply the spotless plugin fixes automatically with `mvn spotless:apply`
 
-### Add the following to pom.xml
+=== Add the following to pom.xml
 
 .pom.xml
 [source,xml]

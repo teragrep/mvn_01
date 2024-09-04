@@ -1,17 +1,37 @@
-# project-archetype
+= project-archetype
 
 Project archetype for Teragrep projects.
 
 The `pom.xml` examples are added to the main `pom.xml` file under `<plugins>..</plugins>` section.
 
-## formatter
+== Mandatory plugins for java projects
 
-Will enforce and automatically apply proper formatting and licensing information to project files.
+=== enforcer
 
-## rat
+The enforcer plugin forces certain standards in pom.xml
 
-The rat plugin is used to enforce existence of correct licenses. Use with formatter.
+=== formatter (spotless)
 
-## enforcer
+Will enforce and can automatically apply proper formatting and licensing information to project files.
 
-The enforcer plugin forces minimum maven version to be used with the project.
+Also known as `spotless`
+
+=== rat
+
+The rat plugin is used to enforce existence of correct licenses, will complement formatter plugin
+
+== Other java project plugins
+
+=== jacoco
+
+Provides test coverity reports.
+
+== Other files
+
+=== workflows
+
+Contains fully reusable templates or otherwise useful boilerplate for GitHub workflows
+
+=== example-java-project
+
+Contains example java project that uses mandatory plugins as described above

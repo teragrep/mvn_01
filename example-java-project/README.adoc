@@ -1,0 +1,50 @@
+= Example Java Project
+
+Contains the following maven plugins and example issues with them:
+
+- enforcer
+
+- rat
+
+- formatter
+
+== Plugin examples and their issues
+
+=== Enforcer
+
+Project requires all plugin versions to be set but `maven-surefire-plugin` is not set. You can fix it by making sure the following information is in pom.xml.
+
+.pom.xml
+[source,xml]
+----
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <!-- version information is required -->
+    <version>3.2.5</version>
+    <configuration>
+        <parallel>all</parallel>
+        <useUnlimitedThreads>true</useUnlimitedThreads>
+    </configuration>
+</plugin>
+----
+
+Project requires Java 11 which is generally not the default Java version.
+
+You can force certain version by using `JAVA_HOME` environment variable when running Maven: `JAVA_HOME=/usr/lib/jvm/java-11-openjdk mvn clean package`
+
+=== Rat
+
+It requires `Main.java` to contain licensing information which is intentionally not set by default.
+
+This can be fixed by running steps specified in `Formatter` section.
+
+=== Formatter
+
+License header is set to be at `license-header` but the actual file has wrong name `header`. This can be fixed by running `mv header license-header` command.
+
+Both `Main.java` and `pom.xml` have formatting violations in addition to `Main.java` missing the license information. You can apply automatic fixes by running spotless apply: `mvn spotless:apply`
+
+== Running the output to get the secret
+
+`java -jar target/example-java-project-jar-with-dependencies.jar` once project is properly built.
