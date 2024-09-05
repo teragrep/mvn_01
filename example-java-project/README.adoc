@@ -1,0 +1,79 @@
+= Example Java Project
+
+This project assumes you have working maven setup. Goal is to run `mvn clean package` to build the project and then to run the code to see the secret message.
+
+Contains the following maven plugins and example issues with them:
+
+- enforcer
+
+- rat
+
+- formatter
+
+== Plugin examples and their issues
+
+=== Enforcer
+
+Project requires all plugin versions to be set but `maven-surefire-plugin` is not set. You can fix it by making sure the version information is in `pom.xml` under `org.apache.maven.plugins:maven-surefire-plugin` plugin definition.
+
+.pom.xml
+[source,xml]
+----
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <!-- version information is required -->
+    <version>3.2.5</version>
+    <configuration>
+        <parallel>all</parallel>
+        <useUnlimitedThreads>true</useUnlimitedThreads>
+    </configuration>
+</plugin>
+----
+
+Project requires Java 11 which is generally not the default Java version.
+
+You can force certain version by using `JAVA_HOME` environment variable when running Maven, for example: `JAVA_HOME=/usr/lib/jvm/java-11-openjdk mvn clean package`
+
+=== Rat
+
+It requires all files to either contain licensing information or to be excluded.
+
+The file `src/main/assembly/jar-with-dependencies.xml` needs to be excluded. You can fix it by making sure the following information is in `pom.xml` under `org.apache.rat:apache-rat-plugin` plugin configuration.
+
+.pom.xml
+[source,xml]
+----
+ <excludes>
+    <!-- git -->
+    <exclude>.git/**</exclude>
+    <exclude>.gitattributes</exclude>
+    <exclude>.gitignore</exclude>
+    <exclude>.gitmodules</exclude>
+    <!-- ci -->
+    <exclude>.github/workflows/*</exclude>
+    <exclude>.github/ISSUE_TEMPLATE/*</exclude>
+    <exclude>.github/PULL_REQUEST_TEMPLATE/*</exclude>
+    <exclude>toolchains.xml</exclude>
+    <exclude>settings.xml</exclude>
+    <!-- maven -->
+    <exclude>pom.xml</exclude>
+    <exclude>eclipse-java-formatter.xml</exclude>
+    <!-- readme -->
+    <exclude>README.adoc</exclude>
+    <!-- add this line -->
+    <exclude>src/main/assembly/jar-with-dependencies.xml</exclude>
+</excludes>
+----
+
+You can insert license to the file `Main.java` automatically by following instructions in the `Formatter` section.
+
+=== Formatter
+
+License header is set to be at `license-header` but the actual file has wrong name `header`. This can be fixed by running `mv header license-header` command.
+
+Both `Main.java` and `pom.xml` have formatting violations in addition to `Main.java` missing the license information. You can apply automatic fixes by running spotless apply: `mvn spotless:apply`
+
+== Running the output to get the secret
+
+`java -jar target/example-java-project-jar-with-dependencies.jar` once project is properly built.
