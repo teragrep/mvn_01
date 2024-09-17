@@ -4,6 +4,12 @@
 
 Checks are automatically done once included to project.
 
+=== bannedDependencies
+
+https://maven.apache.org/enforcer/enforcer-rules/bannedDependencies.html[Documentation]
+
+Ban certain dependencies from being used. Default `junit:junit` bans older Junit versions that we do not want to use.
+
 === requireMavenVersion
 
 https://maven.apache.org/enforcer/enforcer-rules/requireMavenVersion.html[Documentation]
@@ -59,6 +65,12 @@ We do not support third party repositories by default due to code management and
       </goals>
       <configuration>
         <rules>
+          <bannedDependencies>
+            <excludes>
+              <!-- We generally do not want to use junit4, only junit5 -->
+              <exclude>junit:junit</exclude>
+            </excludes>
+          </bannedDependencies>
           <requireMavenVersion>
             <version>3.2.5</version>
           </requireMavenVersion>
