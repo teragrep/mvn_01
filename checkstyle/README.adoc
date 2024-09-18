@@ -4,6 +4,8 @@
 
 Enforces certain coding standards, complements both `enforcer` and `formatter` plugins.
 
+Focuses on best practices for code and not stylistic formatting as that is done by `formatter` plugin.
+
 Checks are automatically done once included to project.
 
 You can manually test checkstyle rules with `mvn checkstyle:check`
