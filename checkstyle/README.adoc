@@ -1,0 +1,97 @@
+= checkstyle plugin
+
+== Usage
+
+Checks are automatically done once included to project.
+
+You can manually test checkstyle rules with `mvn checkstyle:check`
+
+Documentation and further configuration for each check can be found https://checkstyle.org/checks.html[in their documentation]
+
+=== Add the following to pom.xml
+
+.pom.xml
+[source,xml]
+----
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-checkstyle-plugin</artifactId>
+  <version>3.5.0</version>
+  <configuration>
+    <logViolationsToConsole>true</logViolationsToConsole>
+    <checkstyleRules>
+      <module name="Checker">
+        <module name="TreeWalker">
+          <!-- block checks -->
+          <module name="AvoidNestedBlocks">
+            <property name="allowInSwitchCase" value="true"></property>
+          </module>
+          <module name="EmptyBlock">
+            <property name="option" value="text"></property>
+          </module>
+          <module name="EmptyCatchBlock"></module>
+          <module name="NeedBraces"></module>
+          <!-- class design -->
+          <module name="FinalClass"></module>
+          <module name="OneTopLevelClass"></module>
+          <!-- coding -->
+          <module name="DefaultComesLast"></module>
+          <module name="EmptyStatement"></module>
+          <module name="EqualsAvoidNull"></module>
+          <module name="FallThrough"></module>
+          <module name="FinalLocalVariable"></module>
+          <module name="IllegalCatch"></module>
+          <module name="IllegalThrows"></module>
+          <module name="IllegalType"></module>
+          <module name="InnerAssignment"></module>
+          <module name="MagicNumber"></module>
+          <module name="MissingSwitchDefault"></module>
+          <module name="ModifiedControlVariable">
+            <property name="skipEnhancedForLoopVariable" value="true"></property>
+          </module>
+          <module name="MultipleVariableDeclarations"></module>
+          <module name="NoArrayTrailingComma"></module>
+          <module name="NoClone"></module>
+          <module name="NoEnumTrailingComma"></module>
+          <module name="NoFinalizer"></module>
+          <module name="OneStatementPerLine"></module>
+          <module name="PackageDeclaration"></module>
+          <module name="ParameterAssignment"></module>
+          <module name="RequireThis"></module>
+          <module name="SimplifyBooleanReturn"></module>
+          <module name="SimplifyBooleanExpression"></module>
+          <module name="StringLiteralEquality"></module>
+          <module name="UnnecessarySemicolonAfterOuterTypeDeclaration"></module>
+          <module name="UnnecessarySemicolonAfterTypeMemberDeclaration"></module>
+          <module name="UnnecessarySemicolonInEnumeration"></module>
+          <module name="UnnecessarySemicolonInTryWithResources"></module>
+          <module name="UnusedLocalVariable"></module>
+          <!-- imports -->
+          <module name="AvoidStarImport"></module>
+          <module name="AvoidStaticImport"></module>
+          <module name="IllegalImport"></module>
+          <!-- Miscellaneous -->
+          <module name="ArrayTypeStyle"></module>
+          <module name="NoCodeInFile"></module>
+          <module name="OuterTypeFilename"></module>
+          <module name="UpperEll"></module>
+          <!-- modifiers -->
+          <module name="ClassMemberImpliedModifier"></module>
+          <module name="InterfaceMemberImpliedModifier"></module>
+        </module>
+        <!-- Miscellaneous -->
+        <module name="UniqueProperties"></module>
+      </module>
+    </checkstyleRules>
+  </configuration>
+  <executions>
+    <execution>
+      <id>verify-style</id>
+      <goals>
+        <goal>check</goal>
+      </goals>
+      <phase>process-classes</phase>
+    </execution>
+  </executions>
+</plugin>
+----
