@@ -2,6 +2,8 @@
 
 == Usage
 
+Enforces certain coding standards, complements both `enforcer` and `formatter` plugins.
+
 Checks are automatically done once included to project.
 
 You can manually test checkstyle rules with `mvn checkstyle:check`
@@ -70,7 +72,7 @@ Documentation and further configuration for each check can be found https://chec
           <module name="AvoidStarImport"></module>
           <module name="AvoidStaticImport"></module>
           <module name="IllegalImport"></module>
-          <!-- Miscellaneous -->
+          <!-- Miscellaneous, part of TreeWalker module -->
           <module name="ArrayTypeStyle"></module>
           <module name="NoCodeInFile"></module>
           <module name="OuterTypeFilename"></module>
@@ -79,7 +81,8 @@ Documentation and further configuration for each check can be found https://chec
           <module name="ClassMemberImpliedModifier"></module>
           <module name="InterfaceMemberImpliedModifier"></module>
         </module>
-        <!-- Miscellaneous -->
+        <!-- Miscellaneous, part of Checker module-->
+        <module name="NewlineAtEndOfFile"></module>
         <module name="UniqueProperties"></module>
       </module>
     </checkstyleRules>
