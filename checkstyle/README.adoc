@@ -54,8 +54,10 @@ Documentation and further configuration for each check can be found https://chec
           <module name="EqualsHashCode"></module>
           <module name="FallThrough"></module>
           <module name="FinalLocalVariable"></module>
+          <module name="HiddenField"></module>
           <module name="IllegalCatch"></module>
           <module name="IllegalThrows"></module>
+          <module name="IllegalToken"></module>
           <module name="IllegalType"></module>
           <module name="InnerAssignment"></module>
           <module name="MagicNumber"></module>
@@ -71,7 +73,11 @@ Documentation and further configuration for each check can be found https://chec
           <module name="OneStatementPerLine"></module>
           <module name="PackageDeclaration"></module>
           <module name="ParameterAssignment"></module>
-          <module name="RequireThis"></module>
+          <module name="RequireThis">
+            <property name="checkFields" value="false"></property>
+            <property name="checkMethods" value="false"></property>
+            <property name="validateOnlyOverlapping" value="true"></property>
+          </module>
           <module name="SimplifyBooleanReturn"></module>
           <module name="SimplifyBooleanExpression"></module>
           <module name="StringLiteralEquality"></module>
