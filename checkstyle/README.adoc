@@ -72,7 +72,7 @@ Documentation and further configuration for each check can be found https://chec
               <module name="OneTopLevelClass"></module>
               <module name="PackageDeclaration"></module>
               <module name="PackageName">
-                <property name="format" value="^com\.teragrep\.[a-z]{3}_?\d{2}(?:.[a-zA-Z]\w*)*$"></property>
+                <property name="format" value="^com\.teragrep\.[a-z]{3}_\d{2}(?:.[a-zA-Z]\w*)*$"></property>
               </module>
               <module name="ReturnCount">
                 <property name="max" value="5"></property>
