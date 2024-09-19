@@ -108,9 +108,17 @@ Documentation and further configuration for each check can be found https://chec
           <!-- modifiers -->
           <module name="ClassMemberImpliedModifier"></module>
           <module name="InterfaceMemberImpliedModifier"></module>
+          <module name="ModifierOrder"></module>
+          <!-- naming conventions -->
+          <module name="PackageName">
+            <property name="format" value="^com\.teragrep\.[a-z]{3}_\d{2}(.[a-zA-Z]\w*)*$"/>
+          </module>
+          <module name="TypeName"></module>
         </module>
         <!-- Miscellaneous, part of Checker module-->
         <module name="NewlineAtEndOfFile"></module>
+        <module name="OrderedProperties"></module>
+        <module name="Translation"></module>
         <module name="UniqueProperties"></module>
       </module>
     </checkstyleRules>
