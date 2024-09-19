@@ -66,6 +66,11 @@ Documentation and further configuration for each check can be found https://chec
             <property name="skipEnhancedForLoopVariable" value="true"></property>
           </module>
           <module name="MultipleVariableDeclarations"></module>
+          <module name="NestedForDepth">
+            <property name="max" value="1"/>
+          </module>
+          <module name="NestedIfDepth"></module>
+          <module name="NestedTryDepth"></module>
           <module name="NoArrayTrailingComma"></module>
           <module name="NoClone"></module>
           <module name="NoEnumTrailingComma"></module>
