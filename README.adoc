@@ -6,6 +6,10 @@ The `pom.xml` examples are added to the main `pom.xml` file under `<plugins>..</
 
 == Mandatory plugins for java projects
 
+=== checkstyle
+
+Enforces certain coding standards, complements both `enforcer` and `formatter` plugins
+
 === enforcer
 
 The enforcer plugin forces certain standards in pom.xml
