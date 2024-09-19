@@ -45,7 +45,6 @@ Documentation and further configuration for each check can be found https://chec
           <module name="VisibilityModifier"></module>
           <!-- coding -->
           <module name="AvoidNoArgumentSuperConstructorCall"></module>
-          <module name="ConstructorsDeclarationGrouping"></module>
           <module name="CovariantEquals"></module>
           <module name="DeclarationOrder"></module>
           <module name="DefaultComesLast"></module>
