@@ -47,7 +47,10 @@ Documentation and further configuration for each check can be found https://chec
               <module name="EqualsHashCode"></module>
               <module name="FallThrough"></module>
               <module name="FinalClass"></module>
-              <module name="HiddenField"></module>
+              <module name="HiddenField">
+                <property name="ignoreConstructorParameter" value="true"></property>
+                <property name="ignoreSetter" value="true"></property>
+              </module>
               <module name="IllegalCatch"></module>
               <module name="IllegalImport"></module>
               <module name="IllegalThrows"></module>
