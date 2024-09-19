@@ -86,17 +86,22 @@ Documentation and further configuration for each check can be found https://chec
           <module name="SimplifyBooleanReturn"></module>
           <module name="SimplifyBooleanExpression"></module>
           <module name="StringLiteralEquality"></module>
+          <module name="SuperClone"></module>
+          <module name="SuperFinalize"></module>
           <module name="UnnecessarySemicolonAfterOuterTypeDeclaration"></module>
           <module name="UnnecessarySemicolonAfterTypeMemberDeclaration"></module>
           <module name="UnnecessarySemicolonInEnumeration"></module>
           <module name="UnnecessarySemicolonInTryWithResources"></module>
           <module name="UnusedLocalVariable"></module>
+          <module name="VariableDeclarationUsageDistance"></module>
           <!-- imports -->
           <module name="AvoidStarImport"></module>
           <module name="AvoidStaticImport"></module>
           <module name="IllegalImport"></module>
+          <module name="RedundantImport"></module>
           <!-- Miscellaneous, part of TreeWalker module -->
           <module name="ArrayTypeStyle"></module>
+          <module name="FinalParameters"></module>
           <module name="NoCodeInFile"></module>
           <module name="OuterTypeFilename"></module>
           <module name="UpperEll"></module>
