@@ -206,7 +206,10 @@ Documentation and further configuration for each check can be found https://chec
               <module name="VariableDeclarationUsageDistance">
                 <property name="severity" value="warning"></property>
               </module>
-              <module name="VisibilityModifier"></module>
+              <module name="VisibilityModifier">
+                <property name="allowPublicFinalFields" value="false"></property>
+                <property name="severity" value="warning"></property>
+              </module>
             </module>
             <module name="NewlineAtEndOfFile">
                 <property name="severity" value="warning"></property>
