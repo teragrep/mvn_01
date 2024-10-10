@@ -10,6 +10,11 @@ public class BadImplementation implements ExampleInterface {
     }
 
     @Override
+    public String toString() {
+        return "Hello, " + name + ", I am " + age + " years old.";
+    }
+
+    @Override
     public final boolean equals(Object o) {
         if (o == this) {
             return true;
