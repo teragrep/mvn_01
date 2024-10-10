@@ -6,6 +6,8 @@ Add dependency to pom.xml and use it in tests to verify whether equals and hashc
 
 You can run example project with `mvn clean package` that demos the intended functionality.
 
+More documentation can be found https://github.com/jqno/equalsverifier[in Github] and https://jqno.nl/equalsverifier/[on their website].
+
 === Add the following to pom.xml
 
 .pom.xml

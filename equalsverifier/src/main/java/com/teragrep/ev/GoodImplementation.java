@@ -10,6 +10,11 @@ public class GoodImplementation implements ExampleInterface {
     }
 
     @Override
+    public String toString() {
+        return "Hello, " + name + ", I am " + age + " years old.";
+    }
+
+    @Override
     public final int hashCode() {
         int result = 17;
         if(name != null) {
