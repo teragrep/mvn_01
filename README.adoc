@@ -32,7 +32,7 @@ Provides test coverity reports.
 
 === equalsverifier
 
-The equals verifier plugin is used in tests to verify whether equals and hashcode overrides are implemented correctly
+The equals verifier dependency is used in tests to verify whether equals and hashcode overrides are implemented correctly
 
 == Other files
 

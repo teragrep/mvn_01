@@ -1,8 +1,8 @@
-= equalsverifier plugin
+= equalsverifier
 
 == Usage
 
-Add plugin to pom.xml and use it in tests to verify whether equals and hashcode overrides are done correctly.
+Add dependency to pom.xml and use it in tests to verify whether equals and hashcode overrides are done correctly.
 
 You can run example project with `mvn clean package` that demos the intended functionality.
 
