@@ -17,7 +17,7 @@
     <junit.version>5.11.2</junit.version>
   </properties>
   <dependencies>
-    <!-- main plugin -->
+    <!-- main dependency -->
     <dependency>
       <groupId>nl.jqno.equalsverifier</groupId>
       <artifactId>equalsverifier</artifactId>
