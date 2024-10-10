@@ -1,0 +1,31 @@
+= equalsverifier plugin
+
+== Usage
+
+Add plugin to pom.xml and use it in tests to verify whether equals and hashcode overrides are done correctly.
+
+You can run example project with `mvn clean package` that demos the intended functionality.
+
+=== Add the following to pom.xml
+
+.pom.xml
+[source,xml]
+----
+<dependency>
+    <groupId>nl.jqno.equalsverifier</groupId>
+    <artifactId>equalsverifier</artifactId>
+    <version>3.17.1</version>
+    <scope>test</scope>
+</dependency>
+----
+
+=== Usage in tests
+
+.ExampleTest.java
+[source,java]
+----
+@Test
+public void testContract() {
+    EqualsVerifier.forClass(MyClass.class).verify();
+}
+----

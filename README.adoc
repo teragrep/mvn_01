@@ -30,6 +30,10 @@ The rat plugin is used to enforce existence of correct licenses, will complement
 
 Provides test coverity reports.
 
+=== equalsverifier
+
+The equals verifier plugin is used in tests to verify whether equals and hashcode overrides are implemented correctly
+
 == Other files
 
 === workflows
