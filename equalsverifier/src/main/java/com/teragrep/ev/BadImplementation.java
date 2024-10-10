@@ -19,6 +19,6 @@ public class BadImplementation implements ExampleInterface {
         }
         BadImplementation other = (BadImplementation) o;
         boolean nameEquals = (this.name == null && other.name == null) || (this.name != null && this.name.equals(other.name));
-        return this.age == other.age && nameEquals  ;
+        return this.age == other.age && nameEquals;
     }
 }

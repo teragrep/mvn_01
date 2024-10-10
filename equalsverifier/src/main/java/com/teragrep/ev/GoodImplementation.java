@@ -31,7 +31,6 @@ public class GoodImplementation implements ExampleInterface {
         }
         GoodImplementation other = (GoodImplementation) o;
         boolean nameEquals = (this.name == null && other.name == null) || (this.name != null && this.name.equals(other.name));
-
         return this.age == other.age && nameEquals;
     }
 }
