@@ -225,7 +225,9 @@ Documentation and further configuration for each check can be found https://chec
 </plugin>
 ----
 
-=== Use file filter BeforeExecutionExclusionFileFilter to exclude files from being processed by the utility
+==== How to exclude files from being processed by the utility
+File filter BeforeExecutionExclusionFileFilter decides which files should be excluded from being processed by the utility.
+
 Uses regular expression to match the file name to exclude. Possible to create multiple filters if one is not enough.
 
 Example configuration of the filter to exclude all Test directory files and a file named Record.java using 2 separate filters:
