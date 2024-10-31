@@ -228,15 +228,17 @@ Documentation and further configuration for each check can be found https://chec
 === Use file filter BeforeExecutionExclusionFileFilter to exclude files from being processed by the utility
 Uses regular expression to match the file name to exclude. Possible to create multiple filters if one is not enough.
 
-Example configuration of the filter to exclude all Test directory files:
+Example configuration of the filter to exclude all Test directory files and a file named Record.java using 2 separate filters:
 
 .pom.xml
 [source,xml]
 ----
 <module name="Checker">
   <module name="BeforeExecutionExclusionFileFilter">
-    <property name="fileNamePattern"
-      value=".*[\\/]src[\\/]test[\\/].*$"/>
+    <property name="fileNamePattern" value=".*[\\/]src[\\/]test[\\/].*$"></property>
+  </module>
+  <module name="BeforeExecutionExclusionFileFilter">
+    <property name="fileNamePattern" value="Record\.java$"></property>
   </module>
 </module>
 ----
