@@ -224,3 +224,19 @@ Documentation and further configuration for each check can be found https://chec
   </executions>
 </plugin>
 ----
+
+=== Use file filter BeforeExecutionExclusionFileFilter to exclude files from being processed by the utility
+Uses regular expression to match the file name to exclude. Possible to create multiple filters if one is not enough.
+
+Example configuration of the filter to exclude all Test directory files:
+
+.pom.xml
+[source,xml]
+----
+<module name="Checker">
+  <module name="BeforeExecutionExclusionFileFilter">
+    <property name="fileNamePattern"
+      value=".*[\\/]src[\\/]test[\\/].*$"/>
+  </module>
+</module>
+----
