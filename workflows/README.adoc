@@ -21,3 +21,9 @@ Rest of the secrets and environment comes from the organization and do not need 
 Will create a GitHub and Maven Central release from maven project when new version gets released.
 
 You might have to customize java version and maven arguments depending on the project.
+
+== pom.xml
+
+Contains minimum viable pom with all the required information, plugins and profiles needed for GitHub and Maven Central releases.
+
+Edit values and versions where necessary as they might get outdated and/or contain project/repository specific information.

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <packaging>jar</packaging>
+  <!-- Required: Correct Coordinates -->
+  <!-- https://central.sonatype.org/publish/requirements/#correct-coordinates -->
+  <groupId>com.teragrep</groupId>
+  <artifactId>mvn_01</artifactId>
+  <version>${revision}${sha1}${changelist}</version>
+  <!-- /Correct Coordinates -->
+
+  <!-- Required: Project Name, Description and URL -->
+  <!-- https://central.sonatype.org/publish/requirements/#project-name-description-and-url -->
+  <name>mvn_01</name>
+  <description>Maven Example Project</description>
+  <url>https://teragrep.com</url>
+  <!-- /Project Name, Description and URL -->
+
+  <!-- Required: License Information -->
+  <!-- https://central.sonatype.org/publish/requirements/#license-information -->
+  <licenses>
+    <license>
+      <name>GNU Affero General Public License v3.0</name>
+      <url>https://github.com/teragrep/teragrep/blob/main/LICENSE</url>
+    </license>
+  </licenses>
+  <!-- /License Information -->
+
+  <!-- Required: Developer Information -->
+  <!-- https://central.sonatype.org/publish/requirements/#developer-information -->
+  <developers>
+    <developer>
+      <name>Example Developer</name>
+      <email>0@teragrep.com</email>
+      <organization>Teragrep</organization>
+      <organizationUrl>https://teragrep.com</organizationUrl>
+    </developer>
+  </developers>
+  <!-- /Developer Information -->
+
+  <!-- Required: SCM Information -->
+  <!-- https://central.sonatype.org/publish/requirements/#scm-information -->
+  <scm>
+    <connection>scm:git:https://github.com/teragrep/mvn_01.git</connection>
+    <developerConnection>scm:git:git@github.com:teragrep/mvn_01.git</developerConnection>
+    <url>https://github.com/teragrep/mvn_01/tree/master</url>
+  </scm>
+  <!-- /SCM Information -->
+
+  <build>
+    <directory>${project.basedir}/target</directory>
+    <finalName>mvn_01</finalName>
+    <plugins>
+      <!-- Required: Supply Javadoc and Sources -->
+      <!-- https://central.sonatype.org/publish/requirements/#supply-javadoc-and-sources -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.3.0</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar-no-fork</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.5.0</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <source>8</source>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- /Supply Javadoc and Sources -->
+
+      <!-- Required: Flatten the metadata to make Maven Central compatible releases -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <version>1.1.0</version>
+        <configuration>
+          <updatePomFile>true</updatePomFile>
+          <flattenMode>bom</flattenMode>
+        </configuration>
+        <executions>
+          <execution>
+            <id>flatten.clean</id>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+            <phase>clean</phase>
+          </execution>
+          <execution>
+            <id>flatten</id>
+            <goals>
+              <goal>flatten</goal>
+            </goals>
+            <phase>process-resources</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- /Flatten the metadata -->
+    </plugins>
+  </build>
+
+  <profiles>
+    <!-- Required when publishing to Maven Central -->
+    <profile>
+      <id>publish-maven-central</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.sonatype.central</groupId>
+            <artifactId>central-publishing-maven-plugin</artifactId>
+            <version>0.5.0</version>
+            <extensions>true</extensions>
+            <configuration>
+              <publishingServerId>central-sonatype-org</publishingServerId>
+              <tokenAuth>true</tokenAuth>
+              <autoPublish>true</autoPublish>
+              <waitUntil>validated</waitUntil>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <phase>verify</phase>
+                <configuration>
+                  <gpgArguments>
+                    <arg>--pinentry-mode</arg>
+                    <arg>loopback</arg>
+                  </gpgArguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!-- /Required when publishing to Maven Central -->
+
+    <!-- Required when publishing to GitHub Packages -->
+    <profile>
+      <id>publish-github-packages</id>
+      <distributionManagement>
+        <repository>
+          <id>github</id>
+          <name>GitHub Packages</name>
+          <url>https://maven.pkg.github.com/teragrep/mvn_01</url>
+        </repository>
+      </distributionManagement>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <phase>verify</phase>
+                <configuration>
+                  <gpgArguments>
+                    <arg>--pinentry-mode</arg>
+                    <arg>loopback</arg>
+                  </gpgArguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!-- Required when publishing to GitHub Packages -->
+  </profiles>
+</project>
