@@ -24,6 +24,6 @@ You might have to customize java version and maven arguments depending on the pr
 
 == pom.xml
 
-Contains minimal viable pom with all the required information, plugins and profiles needed for GitHub and Maven Central releases.
+Contains minimum viable pom with all the required information, plugins and profiles needed for GitHub and Maven Central releases.
 
 Edit values and versions where necessary as they might get outdated and/or contain project/repository specific information.
