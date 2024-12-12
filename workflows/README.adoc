@@ -1,6 +1,6 @@
 = Github workflows
 
-== ci.yaml
+== coverity.yaml
 
 Adds automatic Coverity uploading.
 
@@ -8,7 +8,9 @@ Requires the following settings to be enabled for the repository:
 
 vars:
 
- - COVERITY_PROJECT_URL_NAME
+ - COVERITY_PROJECT_URL_NAME (For example mvn_01)
+
+ - COVERITY_PROJECT_URL_ID (Project id, for example 12345, can be found when submitting a new build)
 
 Secrets:
 
