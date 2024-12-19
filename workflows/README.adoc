@@ -1,5 +1,11 @@
 = Github workflows
 
+== ci.yaml
+
+Runs the build on every push.
+
+You might have to customize java version and maven arguments depending on the project.
+
 == coverity.yaml
 
 Adds automatic Coverity uploading.
