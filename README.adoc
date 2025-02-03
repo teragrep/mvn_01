@@ -34,6 +34,10 @@ Provides test coverity reports.
 
 The equals verifier dependency is used in tests to verify whether equals and hashcode overrides are implemented correctly
 
+=== testcontainers
+
+Provides containers for testing use. No need to rely on manually installed and configured external services.
+
 == Other files
 
 === workflows
