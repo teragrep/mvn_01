@@ -6,9 +6,9 @@ Add dependencies to pom.xml and use it in tests to create and manage external se
 
 You can run example project with `mvn clean package` that demos the intended functionality.
 
-More documentation can be found https://java.testcontainers.org/[on their website].
+More documentation can be found https://java.testcontainers.org/[on their website] and supported testcontainers modules can be found https://testcontainers.com/modules/[here].
 
-Note that `TESTCONTAINERS_RYUK_DISABLED=true` environment variable needs to be set if your container has user namespace remapping enabled.
+Note that `TESTCONTAINERS_RYUK_DISABLED=true` environment variable needs to be set if your container has user namespace remapping enabled. More documentation about that can be found https://java.testcontainers.org/features/configuration/#disabling-ryuk[here].
 
 === Add the following to pom.xml
 
