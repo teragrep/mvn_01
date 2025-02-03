@@ -1,0 +1,44 @@
+= testcontainers
+
+== Usage
+
+Add dependencies to pom.xml and use it in tests to create and manage external services.
+
+You can run example project with `mvn clean package` that demos the intended functionality.
+
+More documentation can be found https://java.testcontainers.org/[on their website].
+
+Note that `TESTCONTAINERS_RYUK_DISABLED=true` environment variable needs to be set if your container has user namespace remapping enabled.
+
+=== Add the following to pom.xml
+
+.pom.xml - The dependency
+[source,xml]
+----
+<dependency>
+  <groupId>org.testcontainers</groupId>
+  <artifactId>testcontainers</artifactId>
+  <version>1.20.4</version>
+  <scope>test</scope>
+</dependency>
+----
+
+.pom.xml - MariaDB container
+[source,xml]
+----
+<dependency>
+  <groupId>org.testcontainers</groupId>
+  <artifactId>mariadb</artifactId>
+  <version>1.20.4</version>
+  <scope>test</scope>
+</dependency>
+<dependency>
+  <groupId>org.mariadb.jdbc</groupId>
+  <artifactId>mariadb-java-client</artifactId>
+  <version>3.5.1</version>
+</dependency>
+----
+
+=== Usage in tests
+
+See link:src/test/java/com/teragrep/mvn_01/tc/UserDatabaseTest.java[UserDatabaseTest.java] for more.
