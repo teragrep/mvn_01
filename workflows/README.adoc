@@ -44,7 +44,7 @@ Secrets:
 
   - MAVEN_GPG_PASSPHRASE
 
-== upload_release_attachment.yaml
+== upload_release_github_attachment.yaml
 
 Will attach the wanted artifacts to the release. The example will first build a jar, then builds a rpm that is then attached as an artifact to the release.
 
