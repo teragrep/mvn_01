@@ -22,9 +22,31 @@ Secrets:
 
 Rest of the secrets and environment comes from the organization and do not need to be set here.
 
-== upload_release.yaml
+== upload_release_maven_central.yaml
 
-Will create a GitHub and Maven Central release from maven project when new version gets released.
+Will create a Maven Central release from maven project when new version gets released. Uses the profile `publish-maven-central` for the settings.
+
+You might have to customize java version and maven arguments depending on the project.
+
+This workflow will only trigger in repositories under `teragrep/` organization.
+
+== upload_release_github_packages.yaml
+
+Will create a GitHub Packages release from maven project when new version gets released. Uses the profile `publish-github-packages` for the settings.
+
+You might have to customize java version and maven arguments depending on the project.
+
+Requires the following settings to be enabled for the repository:
+
+Secrets:
+
+  - MAVEN_GPG_PRIVATE_KEY
+
+  - MAVEN_GPG_PASSPHRASE
+
+== upload_release_github_attachment.yaml
+
+Will attach the wanted artifacts to the GitHub release. The example will first build a jar, then builds a rpm that is then attached as an artifact to the release.
 
 You might have to customize java version and maven arguments depending on the project.
 

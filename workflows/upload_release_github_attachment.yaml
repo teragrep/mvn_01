@@ -1,0 +1,39 @@
+name: Upload Artifact as GitHub Release Attachment
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  upload:
+    name: Upload
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Cache Local Maven Repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: 8.0.292+10
+          distribution: 'adopt'
+
+      - name: Build a jar and rpm for release
+        run: mvn --batch-mode -Drevision=${{ github.event.release.tag_name }} -Dsha1= -Dchangelist= clean package && cd rpm/ && mvn --batch-mode -Drevision=${{ github.event.release.tag_name }} -Dsha1= -Dchangelist= -f rpm.pom.xml package
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Attach rpm to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: rpm/target/rpm/com.teragrep-example-name/RPMS/noarch/com.teragrep-example-name-*.noarch.rpm
