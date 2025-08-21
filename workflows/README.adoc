@@ -22,6 +22,20 @@ Secrets:
 
 Rest of the secrets and environment comes from the organization and do not need to be set here.
 
+== publish_pages_from_docs.yaml
+
+This *DOES NOT* configure the GitHub Pages, only builds and pushes to correct place.
+
+Generates `javadoc` and `doxygen` documentation and deploys them to `gh-pages` branch in directory `docs/${BRANCH}/{doxygen,javadoc}/`.
+
+Expects `Doxyfile` file to present.
+
+Expects `javadoc` to be configured in `pom.xml`.
+
+Requires `OUTPUT_DIRECTORY = $(OUTPUT_DIRECTORY)` to be the only value for `OUTPUT_DIRECTORY` inside `Doxyfile`.
+
+You might need to adjust the used `java-version`, default is `11`.
+
 == upload_release_maven_central.yaml
 
 Will create a Maven Central release from maven project when new version gets released. Uses the profile `publish-maven-central` for the settings.
