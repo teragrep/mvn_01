@@ -1,0 +1,24 @@
+--class-path
+'/home/runner/work/mvn_01/mvn_01/example-javadoc-doxygen-project/target/classes'
+-encoding
+'UTF-8'
+-protected
+-sourcepath
+'/home/runner/work/mvn_01/mvn_01/example-javadoc-doxygen-project/src/main/java:/home/runner/work/mvn_01/mvn_01/example-javadoc-doxygen-project/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/runner/work/mvn_01/mvn_01/example-javadoc-doxygen-project/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'mvn_01 0.0.1-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/runner/work/mvn_01/mvn_01/example-javadoc-doxygen-project/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'mvn_01 0.0.1-SNAPSHOT API'

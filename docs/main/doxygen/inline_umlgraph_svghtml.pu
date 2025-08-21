@@ -1,0 +1,34 @@
+@startuml inline_umlgraph_1.svg
+class Cat {
+  + meow()
+}
+
+Cat --> Dog : cuteness
+
+note right of Cat
+Responsibilities:
+- Very cute
+
+Collaborators:
+- Dog
+end note
+@enduml
+@startuml inline_umlgraph_2.svg
+class Dog {
+  + woof()
+}
+
+Dog --> Cat : fluffiness
+
+note right of Dog
+Responsibilities:
+- Very fluffy
+
+Collaborators:
+- Cat
+end note
+@enduml
+@startuml inline_umlgraph_3.svg
+class Owner {
+}
+@enduml
