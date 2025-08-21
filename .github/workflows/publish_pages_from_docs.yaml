@@ -55,6 +55,7 @@ jobs:
         with:
           # This is mvn_01 specific path
           folder: example-javadoc-doxygen-project/docs/${{steps.extract_branch.outputs.branch}}/
+          #       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
           # /End of mvn_01 specific path
           target-folder: docs/${{steps.extract_branch.outputs.branch}}/
           token: ${{ secrets.GITHUB_TOKEN }}
