@@ -26,6 +26,8 @@ Rest of the secrets and environment comes from the organization and do not need 
 
 This *DOES NOT* configure the GitHub Pages, only builds and pushes to correct place.
 
+Example project with `javadoc` and `doxygen` can be found in link:../example-javadoc-doxygen-project[mvn_01/example-javadoc-doxygen-project]
+
 Generates `javadoc` and `doxygen` documentation and deploys them to `gh-pages` branch in directory `docs/${BRANCH}/{doxygen,javadoc}/`.
 
 Expects `Doxyfile` file to present.
