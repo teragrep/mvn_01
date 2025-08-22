@@ -49,6 +49,9 @@ jobs:
         run: doxygen Doxyfile && mv "target/doxygen/html" "docs/${{steps.extract_branch.outputs.branch}}/doxygen/"
         env:
           OUTPUT_DIRECTORY: "target/doxygen"
+      # Generate war
+      - name: Generate war from docs
+        run: mvn -DwarSourceDirectory=docs/${{steps.extract_branch.outputs.branch}}/ package war:war && mv target/*.war "docs/${{steps.extract_branch.outputs.branch}}/"
       # Deploy
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4
