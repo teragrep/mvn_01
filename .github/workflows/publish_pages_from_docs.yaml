@@ -36,11 +36,6 @@ jobs:
       # Make dirs
       - name: Make dirs
         run: mkdir -p docs/${{steps.extract_branch.outputs.branch}}/
-      # Run javadoc
-      - name: Generate javadoc
-        run: mvn -B javadoc:aggregate && mv target/site/apidocs "docs/${{steps.extract_branch.outputs.branch}}/javadoc/"
-        env:
-          MAVEN_OPTS: "-Dmaven.javadoc.failOnError=false"
       # Install dependencies
       - name: Install dependencies
         run: sudo apt-get update && sudo apt-get install doxygen graphviz plantuml
@@ -49,9 +44,11 @@ jobs:
         run: doxygen Doxyfile && mv "target/doxygen/html" "docs/${{steps.extract_branch.outputs.branch}}/doxygen/"
         env:
           OUTPUT_DIRECTORY: "target/doxygen"
-      # Generate war
-      - name: Generate war from docs
-        run: mvn -B -Drevision="${{steps.extract_branch.outputs.branch}}-${{github.sha}}" -Dchangelist='' -Dsha1="" -DwarSourceDirectory=docs/${{steps.extract_branch.outputs.branch}}/ package war:war && mv target/*.war "docs/${{steps.extract_branch.outputs.branch}}/"
+      # Run javadoc and generate war containing both doxygen and javadoc
+      - name: Generate javadoc and create combined javadoc/doxygen war
+        run: mvn --batch -Drevision="${{steps.extract_branch.outputs.branch}}-${{github.sha}}" -Dchangelist='' -Dsha1="" -DwarSourceDirectory=docs/${{steps.extract_branch.outputs.branch}}/ javadoc:aggregate war:war && mv target/site/apidocs "docs/${{steps.extract_branch.outputs.branch}}/javadoc/" && mv target/*.war "docs/${{steps.extract_branch.outputs.branch}}/"
+        env:
+          MAVEN_OPTS: "-Dmaven.javadoc.failOnError=false"
       # Deploy
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4
