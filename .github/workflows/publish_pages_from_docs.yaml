@@ -51,7 +51,7 @@ jobs:
           OUTPUT_DIRECTORY: "target/doxygen"
       # Generate war
       - name: Generate war from docs
-        run: mvn -DwarSourceDirectory=docs/${{steps.extract_branch.outputs.branch}}/ package war:war && mv target/*.war "docs/${{steps.extract_branch.outputs.branch}}/"
+        run: mvn -Drevision="${{steps.extract_branch.outputs.branch}}-${{github.sha}}" -Dchangelist='' -Dsha1="" -DwarSourceDirectory=docs/${{steps.extract_branch.outputs.branch}}/ package war:war && mv target/*.war "docs/${{steps.extract_branch.outputs.branch}}/"
       # Deploy
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4
