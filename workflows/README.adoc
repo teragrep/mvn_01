@@ -1,5 +1,7 @@
 = Github workflows
 
+Reference upstream workflows documentation can be found link:https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows[here].
+
 == ci.yaml
 
 Runs the build on every push.
