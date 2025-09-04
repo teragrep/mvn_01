@@ -4,7 +4,7 @@
 
 Add the plugin information to pom.xml and it will be automatically executed.
 
-You can run example project with `mvn clean package` that demos the intended functionality.
+You can run example project with `mvn clean package` that demos the intended functionality and `mvn spotbugs:gui` afterwards to use the SpotBugs GUI.
 
 More documentation about spotbugs can be found https://spotbugs.readthedocs.io/en/stable/[on their website] and more information about the maven plugin https://spotbugs.readthedocs.io/en/stable/maven.html[here].
 
