@@ -33,6 +33,13 @@
         <configuration>
           <!-- Add to existing <configuration> block, not required to be present. -->
           <excludeFilterFile>${project.basedir}/spotbugs-exclude-filter.xml</excludeFilterFile>
+          <plugins>
+            <plugin>
+              <groupId>com.h3xstream.findsecbugs</groupId>
+              <artifactId>findsecbugs-plugin</artifactId>
+              <version>1.14.0</version>
+            </plugin>
+          </plugins>
           <!-- Default configuration -->
           <xmlOutput>true</xmlOutput>
           <effort>Max</effort>

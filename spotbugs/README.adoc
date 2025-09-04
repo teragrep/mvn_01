@@ -69,6 +69,22 @@ More documentation about spotbugs can be found https://spotbugs.readthedocs.io/e
 ----
 <configuration>
   <!-- Add to existing <configuration> block, not required to be present. -->
+  <!-- Note: This does not work on java 8. -->
   <excludeFilterFile>${project.basedir}/spotbugs-exclude-filter.xml</excludeFilterFile>
+</configuration>
+----
+
+.pom.xml configuration when using findsecbugs
+[source,xml]
+----
+<configuration>
+  <!-- Add to existing <configuration> block -->
+  <plugins>
+    <plugin>
+      <groupId>com.h3xstream.findsecbugs</groupId>
+      <artifactId>findsecbugs-plugin</artifactId>
+      <version>1.14.0</version>
+    </plugin>
+  </plugins>
 </configuration>
 ----
