@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.teragrep</groupId>
+  <artifactId>example-spotbugs-project</artifactId>
+  <version>${revision}${sha1}${changelist}</version>
+  <packaging>jar</packaging>
+  <name>example-spotbugs-project</name>
+  <description>Example spotbugs project</description>
+  <url>https://teragrep.com</url>
+  <properties>
+    <changelist>-SNAPSHOT</changelist>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <revision>0.0.1</revision>
+    <sha1></sha1>
+  </properties>
+  <build>
+    <directory>${project.basedir}/target</directory>
+    <finalName>example-java-project</finalName>
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+    <plugins>
+      <!-- Spotbugs specific part -->
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <version>4.8.6.7</version>
+        <configuration>
+          <!-- Add to existing <configuration> block, not required to be present. -->
+          <excludeFilterFile>${project.basedir}/spotbugs-exclude-filter.xml</excludeFilterFile>
+          <plugins>
+            <plugin>
+              <groupId>com.h3xstream.findsecbugs</groupId>
+              <artifactId>findsecbugs-plugin</artifactId>
+              <version>1.14.0</version>
+            </plugin>
+          </plugins>
+          <!-- Default configuration -->
+          <xmlOutput>true</xmlOutput>
+          <effort>Max</effort>
+          <failThreshold>Low</failThreshold>
+          <!-- Build is expected to fail so don't fail on error -->
+          <failOnError>false</failOnError>
+          <includeTests>true</includeTests>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+            <phase>test</phase>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- /Spotbugs specific part -->
+    </plugins>
+  </build>
+</project>
