@@ -1,0 +1,33 @@
+on:
+  push:
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    # This is mvn_01 specific part
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./spotbugs
+    # End of mvn_01 specific part
+    permissions:
+      contents: write
+    steps:
+      # Checkout
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Cache
+      - name: Cache Local Maven Repository
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+      # Setup java
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: 11
+          distribution: 'adopt'
+      # Run project
+      - name: Run example project
+        run: mvn clean package
