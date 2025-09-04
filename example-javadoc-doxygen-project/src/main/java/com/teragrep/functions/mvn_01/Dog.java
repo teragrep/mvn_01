@@ -2,7 +2,7 @@ package com.teragrep.functions.mvn_01;
 
 /**
  * @class Dog
- * @brief Barks
+ * @brief Woofs
  *
  * @responsibilities
  * - Very fluffy
@@ -12,7 +12,7 @@ package com.teragrep.functions.mvn_01;
  *
  * @startuml
  * class Dog {
- *   + bark()
+ *   + woof()
  * }
  *
  * Dog --> Cat : fluffiness
@@ -29,7 +29,7 @@ package com.teragrep.functions.mvn_01;
  */
 
 public final class Dog {
-    public void bark() {
+    public void woof() {
         return;
     }
 }
