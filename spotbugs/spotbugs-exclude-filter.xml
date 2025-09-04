@@ -1,0 +1,6 @@
+<FindBugsFilter>
+  <!-- We want to ignore only DLS_DEAD_LOCAL_STORE in this example project -->
+  <Match>
+    <Bug pattern="DLS_DEAD_LOCAL_STORE" />
+  </Match>
+</FindBugsFilter>
