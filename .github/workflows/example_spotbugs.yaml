@@ -30,4 +30,4 @@ jobs:
           distribution: 'adopt'
       # Run project
       - name: Run example project
-        run: mvn clean package
+        run: mvn --batch clean package
