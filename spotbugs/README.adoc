@@ -8,6 +8,8 @@ You can run example project with `mvn clean package` that demos the intended fun
 
 More documentation about spotbugs can be found https://spotbugs.readthedocs.io/en/stable/[on their website] and more information about the maven plugin https://spotbugs.readthedocs.io/en/stable/maven.html[here].
 
+Specific Java version requirements can be found https://spotbugs.github.io/spotbugs-maven-plugin/plugin-info.html#System_Requirements_History[here].
+
 === Add the following to pom.xml
 
 .pom.xml when using Java 11+
@@ -43,8 +45,8 @@ More documentation about spotbugs can be found https://spotbugs.readthedocs.io/e
 <plugin>
   <groupId>com.github.spotbugs</groupId>
   <artifactId>spotbugs-maven-plugin</artifactId>
-  <!-- Version 4.8.x.x works with java 8 -->
-  <version>4.8.6.7</version>
+  <!-- Version 4.8.6.6 is currently last java 8 compatible release -->
+  <version>4.8.6.6</version>
   <configuration>
     <!-- Default configuration -->
     <xmlOutput>true</xmlOutput>
@@ -69,7 +71,6 @@ More documentation about spotbugs can be found https://spotbugs.readthedocs.io/e
 ----
 <configuration>
   <!-- Add to existing <configuration> block, not required to be present. -->
-  <!-- Note: This does not work on java 8. -->
   <excludeFilterFile>${project.basedir}/spotbugs-exclude-filter.xml</excludeFilterFile>
 </configuration>
 ----
