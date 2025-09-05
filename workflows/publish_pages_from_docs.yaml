@@ -51,7 +51,7 @@ jobs:
         run: mvn -B -Drevision="${{steps.extract_branch.outputs.branch}}-${{github.sha}}" -Dchangelist='' -Dsha1="" war:war
       # Prepare release
       - name: Move and extract war
-        run: jar -xvf target/*.war -C "docs/${{steps.extract_branch.outputs.branch}}/" && mv target/*.war "docs/${{steps.extract_branch.outputs.branch}}/"
+        run: jar -C "docs/${{steps.extract_branch.outputs.branch}}/" -xvf target/*.war && mv target/*.war "docs/${{steps.extract_branch.outputs.branch}}/"
       # Deploy
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4
