@@ -32,7 +32,7 @@ jobs:
         run: mkdir -p docs/${{steps.extract_branch.outputs.branch}}/
       # Run javadoc
       - name: Generate javadoc
-        run: mvn -B javadoc:aggregate && mv target/site/apidocs "docs/${{steps.extract_branch.outputs.branch}}/javadoc/"
+        run: mvn -B javadoc:aggregate
         env:
           MAVEN_OPTS: "-Dmaven.javadoc.failOnError=false"
       # Install dependencies
@@ -40,9 +40,18 @@ jobs:
         run: sudo apt-get update && sudo apt-get install doxygen graphviz plantuml
       # Generate doxygen docs
       - name: Generate Doxygen docs
-        run: doxygen Doxyfile && mv "target/doxygen/html" "docs/${{steps.extract_branch.outputs.branch}}/doxygen/"
+        run: doxygen Doxyfile
         env:
           OUTPUT_DIRECTORY: "target/doxygen"
+      # Prepare docs
+      - name: Prepare docs
+        run: mkdir target/docs/ && mv target/doxygen/html target/docs/doxygen/ && mv target/site/apidocs target/docs/javadoc/
+      # Generate war
+      - name: Generate war from docs
+        run: mvn -B -Drevision="${{steps.extract_branch.outputs.branch}}-${{github.sha}}" -Dchangelist='' -Dsha1="" war:war
+      # Prepare release
+      - name: Move and extract war
+        run: unzip target/*.war -x "META-INF/*" "WEB-INF/*" -d "docs/${{steps.extract_branch.outputs.branch}}/" && mv target/*.war "docs/${{steps.extract_branch.outputs.branch}}/"
       # Deploy
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4
