@@ -76,4 +76,5 @@ jobs:
           folder: target/gh-pages-aux/src/
           target-folder: /
           token: ${{ secrets.GITHUB_TOKEN }}
-          clean: false
+          clean-exclude: |
+            docs/
