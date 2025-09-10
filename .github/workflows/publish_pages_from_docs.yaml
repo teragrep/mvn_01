@@ -73,7 +73,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          repository: mvn_01
+          repository: teragrep/mvn_01
           ref: main
           sparse-checkout: gh-pages-aux/src/
           path: ${{ runner.temp }}/mvn_01/
