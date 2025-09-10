@@ -73,9 +73,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          repository: teragrep/mvn_01
+          repository: StrongestNumber9/mvn_01 # FIXME to teragrep
           ref: main
-          sparse-checkout: gh-pages-aux/src/
+          sparse-checkout: |
+            gh-pages-aux/src/
           path: gh-pages-aux/
       # Deploy gh-pagex-aux files
       - name: Deploy docs
