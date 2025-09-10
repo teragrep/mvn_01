@@ -79,7 +79,7 @@ jobs:
             gh-pages-aux/src/
           path: gh-pages-aux/
       # Deploy gh-pagex-aux files
-      - name: Deploy docs
+      - name: Deploy auxiliary files
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: gh-pages-aux/
