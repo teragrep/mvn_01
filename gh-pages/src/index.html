@@ -1,0 +1,19 @@
+<html>
+  <body>
+    <script>
+      (async () => {
+        const { username, repo } = /^https:\/\/(?<username>[a-zA-Z0-9]+)\.github\.io\/(?<repo>[^\/]+)/.exec(window.location.href).groups;
+        const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/docs?ref=gh-pages`);
+        const data = await response.json();
+        let htmlString = '<ul>';
+        for (let content of data) {
+          htmlString += `<li><a href="${content.path}/doxygen">${content.name} / Doxygen</a></li>`;
+          htmlString += `<li><a href="${content.path}/javadoc">${content.name} / Javadoc</a></li>`;
+          htmlString += "<br/>";
+        }
+        htmlString += '</ul>';
+        document.getElementsByTagName('body')[0].innerHTML = htmlString;
+      })()
+    </script>
+  <body>
+</html>
