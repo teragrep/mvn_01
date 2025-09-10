@@ -76,11 +76,11 @@ jobs:
           repository: teragrep/mvn_01
           ref: main
           sparse-checkout: gh-pages-aux/src/
-          path: ${{ runner.temp }}/mvn_01/
+          path: gh-pages-aux/
       # Deploy gh-pagex-aux files
       - name: Deploy docs
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: ${{runner.temp}}/mvn_01/
+          folder: gh-pages-aux/
           token: ${{ secrets.GITHUB_TOKEN }}
           clean: false
