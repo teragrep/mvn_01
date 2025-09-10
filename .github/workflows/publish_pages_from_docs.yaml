@@ -84,6 +84,7 @@ jobs:
       - name: Deploy auxiliary files
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: gh-pages-aux/
+          folder: gh-pages-aux/src
+          target-folder: /
           token: ${{ secrets.GITHUB_TOKEN }}
           clean: false
