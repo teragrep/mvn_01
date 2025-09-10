@@ -79,12 +79,12 @@ jobs:
           ref: github_pages_indexing
           sparse-checkout: |
             gh-pages-aux/src/
-          path: target/aux-files/
+          path: target/
       # Deploy gh-pagex-aux files
       - name: Deploy auxiliary files
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: target/aux-files/
+          folder: target/gh-pages-aux/src/
           target-folder: /
           token: ${{ secrets.GITHUB_TOKEN }}
           clean: false
