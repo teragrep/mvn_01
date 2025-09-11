@@ -73,9 +73,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          # FIXME
-          repository: StrongestNumber9/mvn_01
-          ref: add_repository_name
+          repository: teragrep/mvn_01
+          ref: main
           sparse-checkout: |
             gh-pages-aux/src/
           path: target/gh-pages-aux
