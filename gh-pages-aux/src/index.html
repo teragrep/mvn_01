@@ -1,9 +1,6 @@
 <html>
-  <head>
-    <script src="branches.js" type="text/javacript"></javascript>
-  </head>
   <body>
-    <script>
+    <script src="branches.js" type="text/javacript">
       let htmlString = '<ul>';
       for (let branch of branches) {
         htmlString += `<li><a href="${branch}/doxygen">${branch} / Doxygen</a></li>`;
@@ -13,5 +10,5 @@
       htmlString += '</ul>';
       document.getElementsByTagName('body')[0].innerHTML = htmlString;
     </script>
-  <body>
+  </body>
 </html>
