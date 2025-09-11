@@ -90,9 +90,6 @@ jobs:
           sparse-checkout: |
             docs/
           path: target/gh-pages
-      # Debug
-      - name: Debug
-        run: find ${{github.workspace}}
       # Regenerate branches.js
       - name: Regenerate branches.js
         run: python -c 'import os, json; print(f"var branches = {json.dumps(os.listdir("${{github.workspace}}/target/gh-pages/docs/"))}")' > ${{github.workspace}}/target/gh-pages-aux/gh-pages-aux/src/branches.js
