@@ -80,9 +80,19 @@ jobs:
           sparse-checkout: |
             gh-pages-aux/src/
           path: target/
+      # Checkout gh-pages for branches generation
+      - name: Fetch mvn_01
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          repository: ${{github.repository}}
+          ref: gh-pages
+          sparse-checkout: |
+            docs/
+          path: target/
       # Regenerate branches.js
       - name: Regenerate branches.js
-        run: python -c 'import os, json; print(f"var branches = {json.dumps(os.listdir("docs/"))}")' > ${{github.workspace}}/target/gh-pages-aux/src/branches.js
+        run: python -c 'import os, json; print(f"var branches = {json.dumps(os.listdir("target/docs/"))}")' > ${{github.workspace}}/target/gh-pages-aux/src/branches.js
       # Deploy gh-pagex-aux files
       - name: Deploy auxiliary files
         uses: JamesIves/github-pages-deploy-action@v4
