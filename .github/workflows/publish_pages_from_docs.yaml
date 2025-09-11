@@ -82,10 +82,10 @@ jobs:
           path: target/
       # Debug
       - name: debug
-        run: find target/
+        run: find .
       # Regenerate branches.js
       - name: Regenerate branches.js
-        run: python -c 'import os, json; print(f"var branches = {json.dumps(os.listdir("docs/"))}")' > target/gh-pages-aux/src/branches.js
+        run: python -c 'import os, json; print(f"var branches = {json.dumps(os.listdir("docs/"))}")' > target/gh-pages-aux/src/branches.js || true
       # Deploy gh-pagex-aux files
       - name: Deploy auxiliary files
         uses: JamesIves/github-pages-deploy-action@v4
