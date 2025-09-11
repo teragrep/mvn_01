@@ -95,7 +95,7 @@ jobs:
         run: find ${{github.workspace}}
       # Regenerate branches.js
       - name: Regenerate branches.js
-        run: python -c 'import os, json; print(f"var branches = {json.dumps(os.listdir("target/gh-pages/docs/"))}")' > ${{github.workspace}}/target/gh-pages-aux/gh-pages-aux/src/branches.js
+        run: python -c 'import os, json; print(f"var branches = {json.dumps(os.listdir("${{github.workspace}}/target/gh-pages/docs/"))}")' > ${{github.workspace}}/target/gh-pages-aux/gh-pages-aux/src/branches.js
       # Deploy gh-pagex-aux files
       - name: Deploy auxiliary files
         uses: JamesIves/github-pages-deploy-action@v4
