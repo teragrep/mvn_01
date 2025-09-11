@@ -73,11 +73,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          repository: teragrep/mvn_01
-          ref: main
+          repository: StrongestNumber9/mvn_01 # FIXME
+          ref: github_pages_indexing # FIXME
           sparse-checkout: |
             gh-pages-aux/src/
           path: target/
+      # Regenerate branches.js
+      - name: Regenerate branches.js
+        run: python -c 'import os, json; print(f"{json.dumps(os.listdir("docs/"))}")' > target/gh-pages-aux/src/branches.js
       # Deploy gh-pagex-aux files
       - name: Deploy auxiliary files
         uses: JamesIves/github-pages-deploy-action@v4

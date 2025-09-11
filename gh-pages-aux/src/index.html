@@ -1,14 +1,14 @@
 <html>
+  <head>
+    <script src="branches.js" type="text/javacript"></javascript>
+  </head>
   <body>
     <script>
       (async () => {
-        const { username, repo } = /^https:\/\/(?<username>[a-zA-Z0-9]+)\.github\.io\/(?<repo>[^\/]+)/.exec(window.location.href).groups;
-        const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/docs?ref=gh-pages`);
-        const data = await response.json();
         let htmlString = '<ul>';
-        for (let content of data) {
-          htmlString += `<li><a href="${content.path}/doxygen">${content.name} / Doxygen</a></li>`;
-          htmlString += `<li><a href="${content.path}/javadoc">${content.name} / Javadoc</a></li>`;
+        for (let branch of branches) {
+          htmlString += `<li><a href="${branch}/doxygen">${branch} / Doxygen</a></li>`;
+          htmlString += `<li><a href="${branch}/javadoc">${branch} / Javadoc</a></li>`;
           htmlString += "<br/>";
         }
         htmlString += '</ul>';
