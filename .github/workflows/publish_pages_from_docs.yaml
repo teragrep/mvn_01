@@ -73,8 +73,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          repository: ${{github.repository}}
-          ref: "encode_uri#123"
+          repository: teragrep/mvn_01
+          ref: main
           sparse-checkout: |
             gh-pages-aux/src/
           path: target/gh-pages-aux
