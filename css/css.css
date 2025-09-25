@@ -1,5 +1,5 @@
 @import "font.css";
-@import "variabless.css";
+@import "variables.css";
 
 body {
   background-color: var(--dm-grey-600);
