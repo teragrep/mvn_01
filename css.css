@@ -1,0 +1,46 @@
+:root {
+  /* Colors */
+  --dm-grey-100: #F0F4FF;
+  --dm-grey-200: #DDE4FD;
+  --dm-grey-300: #B8C5F7;
+  --dm-grey-400: #6B79AB;
+  --dm-grey-500: #4E5C8F;
+  --dm-grey-600: #394570;
+  --dm-grey-700: #2D385E;
+  --dm-grey-800: #212A4B;
+  --dm-grey-900: #161C33;
+  --tertiary-50: #F0FDFA;
+  --tertiary-100: #CCFBF1;
+  --tertiary-200: #99F6E4;
+  --tertiary-300: #70EDD9;
+  --tertiary-400: #4AD6C9;
+  --tertiary-500: #14B8A6;
+  --tertiary-600: #0D9488;
+  --tertiary-700: #0F766E;
+  --tertiary-800: #115E59;
+  --tertiary-900: #134E4A;
+}
+
+body {
+  background-color: var(--dm-grey-600);
+  color: var(--dm-grey-200);
+  font-size: 16px;
+}
+
+a, 
+a:visited {
+  color: var(--tertiary-200);
+}
+
+a:hover { text-decoration: none; }
+
+h1, 
+h2 {
+  color: var(--dm-grey-100);
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+h1            { margin-bottom: 48px; }
+h2:last-child { margin-top: 48px; }
+.branch h2    { font-size: 16px; }
