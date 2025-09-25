@@ -1,1 +1,1 @@
-var repository = "teragrep/mvn_01"
+var repository = "ronja-ui/mvn_01"
