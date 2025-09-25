@@ -2,7 +2,7 @@
 INPUT                  = src/
 FILE_PATTERNS          = *.java
 RECURSIVE              = YES
-EXCLUDE_PATTERNS       = src/main/test/*
+EXCLUDE_PATTERNS       = src/test/*
 
 # OUTPUT
 OUTPUT_DIRECTORY       = $(OUTPUT_DIRECTORY)
