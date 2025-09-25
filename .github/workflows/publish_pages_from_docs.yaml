@@ -41,9 +41,10 @@ jobs:
         run: mvn -B javadoc:aggregate
         env:
           MAVEN_OPTS: "-Dmaven.javadoc.failOnError=false"
-      # Install dependencies
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install doxygen graphviz plantuml
+      # Install or restore dependencies from caches
+      - uses: awalsh128/cache-apt-pkgs-action@v1.5.3
+        with:
+          packages: doxygen graphviz plantuml
       # Generate doxygen docs
       - name: Generate Doxygen docs
         run: doxygen Doxyfile
