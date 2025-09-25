@@ -10,6 +10,7 @@
     <script>
       let htmlString = `<div class="content">`;
       htmlString += `<h1>${repository}</h1>`;
+      htmlString += `<div class="branches">`;
       for (let branch of branches) {
         htmlString += `<div class="branch">`;
         htmlString += `<h2>${branch}</h2>`;
@@ -18,6 +19,7 @@
         htmlString += `<a href="docs/${encodeURIComponent(branch)}/javadoc/">Javadoc</a>`;
         htmlString += `</div>`;
       }
+      htmlString += `</div>`;
       htmlString += `<h2>Teragrep</h2>`;
       htmlString += `</div>`;
       document.getElementsByTagName('body')[0].innerHTML = htmlString;
