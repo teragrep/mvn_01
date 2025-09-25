@@ -1,5 +1,6 @@
 package com.teragrep.functions.mvn_01;
 
+// spotless:off
 /**
  * @class Owner
  * @brief Owns the animals
@@ -17,6 +18,7 @@ package com.teragrep.functions.mvn_01;
  *
  * @enduml
  */
+// spotless:on
 
 public final class Owner {
 }
