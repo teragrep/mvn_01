@@ -1,5 +1,6 @@
 package com.teragrep.functions.mvn_01;
 
+// spotless:off
 /**
  * @class Dog
  * @brief Woofs
@@ -27,6 +28,7 @@ package com.teragrep.functions.mvn_01;
  *
  * @enduml
  */
+// spotless:on
 
 public final class Dog {
     public void woof() {

@@ -1,5 +1,6 @@
 package com.teragrep.functions.mvn_01;
 
+// spotless:off
 /**
  * @class Cat
  * @brief Meows
@@ -27,6 +28,7 @@ package com.teragrep.functions.mvn_01;
  *
  * @enduml
  */
+// spotless:on
 
 public final class Cat {
     public void meow() {
