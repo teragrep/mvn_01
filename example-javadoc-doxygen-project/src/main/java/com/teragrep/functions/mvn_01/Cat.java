@@ -31,6 +31,7 @@ package com.teragrep.functions.mvn_01;
 // spotless:on
 
 public final class Cat {
+
     public void meow() {
         return;
     }
