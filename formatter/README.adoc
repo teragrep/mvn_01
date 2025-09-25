@@ -8,6 +8,20 @@ Provide the license information file as `license-header` in the repository root.
 
 You can apply the spotless plugin fixes automatically with `mvn spotless:apply`
 
+You can disable spotless with `spotless:off` and then re-enable with `spotless:on`. Mostly used with javadoc blocks to prevent automatic formating from breaking the output. Otherwise consider whether it is actually necessary before using it. Requires `<toggleOffOn></toggleOffOn>` to be present in spotless plugin configuration, see example pom.xml for more.
+
+.ExampleDisableSpotlessSnippet.java
+[source, java]
+----
+// spotless:off
+/**
+ * @class ExampleDisableSpotlessSnippet
+ * @brief ExampleDisableSpotlessSnippet spotless is disabled only for this codeblock. Notice how the commands are standalone comments and outside of the javadoc block as it would otherwise be included as part of the javadoc.
+ *
+ */
+// spotless:on
+----
+
 === Add the following to pom.xml
 
 .pom.xml
@@ -22,6 +36,7 @@ You can apply the spotless plugin fixes automatically with `mvn spotless:apply`
   <!-- <version>2.30.0</version> -->
   <configuration>
     <java>
+      <toggleOffOn></toggleOffOn>
       <eclipse>
         <file>${project.basedir}/eclipse-java-formatter.xml</file>
         <version>4.10.0</version>
