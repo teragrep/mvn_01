@@ -28,7 +28,8 @@ h1 {
   margin-bottom: var(--m-8); 
 }
 
-h1:after {
+h1:after,
+h2:last-child:after {
   content: "///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////";
   display: inline-block;
   width: 60vw;
@@ -37,7 +38,22 @@ h1:after {
   color: var(--dm-grey-400);
 }
 
+@media screen and (min-width: 1350px) {
+  h1:after,
+  h2:last-child:after { 
+    width: 70vw; 
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  h1:after,
+  h2:last-child:after { 
+    width: 50vw; 
+  }
+}
+
 h2:last-child { 
+  display: flex;
   margin-top: var(--m-8); 
   margin-bottom: var(--m-0);
 }
