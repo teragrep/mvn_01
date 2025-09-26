@@ -1,0 +1,46 @@
+:root {
+  /* Colors */
+  --dm-grey-100: #F0F4FF;
+  --dm-grey-200: #DDE4FD;
+  --dm-grey-300: #B8C5F7;
+  --dm-grey-400: #6B79AB;
+  --dm-grey-500: #4E5C8F;
+  --dm-grey-600: #394570;
+  --dm-grey-700: #2D385E;
+  --dm-grey-800: #212A4B;
+  --dm-grey-900: #161C33;
+  --tertiary-50: #F0FDFA;
+  --tertiary-100: #CCFBF1;
+  --tertiary-200: #99F6E4;
+  --tertiary-300: #70EDD9;
+  --tertiary-400: #4AD6C9;
+  --tertiary-500: #14B8A6;
+  --tertiary-600: #0D9488;
+  --tertiary-700: #0F766E;
+  --tertiary-800: #115E59;
+  --tertiary-900: #134E4A;
+  /* Margin utilities */
+  --m-0: 0;
+  --m-1: 4px;
+  --m-2: 6px;
+  --m-3: 8px;
+  --m-4: 12px;
+  --m-5: 16px;
+  --m-6: 24px;
+  --m-7: 32px;
+  --m-8: 48px;
+  /* Padding utilities */
+  --p-0: 0;
+  --p-1: 4px;
+  --p-2: 6px;
+  --p-3: 8px;
+  --p-4: 12px;
+  --p-5: 16px;
+  --p-6: 24px;
+  --p-7: 32px;
+  --p-8: 40px;
+  --p-9: 48px;
+  --p-10: 64px;
+  --p-11: 80px;
+  --p-12: 96px;
+}

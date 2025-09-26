@@ -1,0 +1,57 @@
+/* Roboto Mono */
+
+@font-face{
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url(/roboto-mono/RobotoMono-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 400;
+    src: url(/roboto-mono/RobotoMono-Italic.ttf);
+}
+
+@font-face{
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 500;
+    src: url(/roboto-mono/RobotoMono-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 500;
+    src: url(/roboto-mono/RobotoMono-MediumItalic.ttf);
+}
+
+@font-face{
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 600;
+    src: url(/roboto-mono/RobotoMono-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 600;
+    src: url(/roboto-mono/RobotoMono-SemiBoldItalic.ttf);
+}
+
+@font-face{
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 700;
+    src: url(/roboto-mono/RobotoMono-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    font-style: italic;
+    font-weight: 700;
+    src: url(/roboto-mono/RobotoMono-BoldItalic.ttf);
+}
