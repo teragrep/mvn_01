@@ -41,9 +41,13 @@ h2:last-child {
   justify-content: space-between;
   height: calc(100vh - var(--p-11) * 2);
   padding: var(--p-11) var(--p-12);
+  overflow: auto;
 }
 
-.branches { display: flex; }
-.branch   { margin-right: var(--m-8); }
-
+.branches { 
+  display: grid; 
+  grid-template-columns: auto auto auto;
+  column-gap: var(--m-8);
+  row-gap: var(--m-8);
+}
 
