@@ -74,8 +74,16 @@ h2:last-child {
 
 .branches { 
   display: grid; 
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
   column-gap: var(--m-8);
   row-gap: var(--m-8);
+}
+
+@media screen and (max-width: 1120px) {
+  .branches { grid-template-columns: auto auto auto; }
+}
+
+@media screen and (max-width: 600px) {
+  .branches { grid-template-columns: auto auto; }
 }
 
