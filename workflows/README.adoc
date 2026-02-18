@@ -64,9 +64,44 @@ Secrets:
 
 == upload_release_github_attachment.yaml
 
-Will attach the wanted artifacts to the GitHub release. The example will first build a jar, then builds a rpm that is then attached as an artifact to the release.
+Will attach the wanted artifacts to the GitHub release. The example will first build a jar, then builds and signs the rpm that is then attached as an artifact to the release.
+
+Signing requires the following `configuration` values under `org.codehaus.mojo:rpm-maven-plugin` plugin to be enabled:
+
+.Snipped rpm.pom.xml highlighting additions
+[source,xml]
+----
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>rpm-maven-plugin</artifactId>
+  <!-- snipped other plugin definitions -->
+  <configuration>
+    <!-- snipped other configuration definitions -->
+    <keyname>${env.RPM_SIGNING_KEYNAME}</keyname>
+    <keyPassphrase>
+      <passphrase>${env.RPM_SIGNING_PASSPHRASE}</passphrase>
+    </keyPassphrase>
+  </configuration>
+</plugin>
+----
 
 You might have to customize java version and maven arguments depending on the project.
+
+Requires the following settings to be enabled for the repository:
+
+Mandatory secrets:
+
+  - RPM_SIGNING_PUBLIC_KEY
+
+  - RPM_SIGNING_PRIVATE_KEY
+
+  - RPM_SIGNING_PASSPHRASE
+
+You can use `dfg_01` to update `${{ github.repository_owner }}/pkg_01` repository by setting `PKG_01_DEPLOY_KEY` secret. Read more on https://github.com/teragrep/dfg_01[the main dfg_01 repository] for detailed usage information.
+
+Optional secret:
+
+  - PKG_01_DEPLOY_KEY
 
 == pom.xml
 
