@@ -64,7 +64,7 @@ Secrets:
 
 == upload_release_github_attachment.yaml
 
-Will attach the wanted artifacts to the GitHub release. The example will first build a jar, then builds and signs the rpm that is then attached as an artifact to the release.
+Will attach the wanted artifacts to the GitHub release. The example will first build a jar, then builds and signs the rpm that is then attached as an artifact to the release. Example project can be found in link:../rpm-packaging[rpm-packaging] directory.
 
 Signing requires the following `configuration` values under `org.codehaus.mojo:rpm-maven-plugin` plugin to be enabled:
 
