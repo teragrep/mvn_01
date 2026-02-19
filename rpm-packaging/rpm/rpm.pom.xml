@@ -21,6 +21,7 @@
   <build>
     <directory>${project.basedir}/target</directory>
     <plugins>
+      <!-- The main plugin responsible for creating the rpm -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>rpm-maven-plugin</artifactId>

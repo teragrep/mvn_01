@@ -1,6 +1,6 @@
 = Example RPM packaging project
 
-The goal of this project is to be a minimal example demo for link:../workflows#upload_release_github_attachmentyaml[upload_release_github_attachment.yaml]. The `rpm/rpm.pom.xml` contains examples on how to include the built java artifact and auxiliary files from `rpm/aux/` to different locations with different permissions.
+The goal of this project is to be a minimal example demo for link:../workflows#upload_release_github_attachmentyaml[upload_release_github_attachment.yaml]. The link:rpm/rpm.pom.xml[rpm/rpm.pom.xml] contains examples on how to include the built java artifact and auxiliary files from `rpm/aux/` to different locations with different permissions.
 
 You can build the java artifacts with `mvn clean package` on repository root. This should give you `target/example-rpm-project.jar` file that will be packaged inside the `rpm`.
 
