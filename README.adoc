@@ -47,3 +47,7 @@ Contains fully reusable templates or otherwise useful boilerplate for GitHub wor
 === example-java-project
 
 Contains example java project that uses mandatory plugins as described above
+
+=== rpm-packaging
+
+Contains minimal example java project for upload_release_github_attachment.yaml that builds java, packages it to rpm and attaches the result rpm to the release

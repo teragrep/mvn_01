@@ -1,0 +1,20 @@
+= Example RPM packaging project
+
+The goal of this project is to be a minimal example demo for link:../workflows#upload_release_github_attachmentyaml[upload_release_github_attachment.yaml]. The `rpm/rpm.pom.xml` contains examples on how to include the built java artifact and auxiliary files from `rpm/aux/` to different locations with different permissions.
+
+You can build the java artifacts with `mvn clean package` on repository root. This should give you `target/example-rpm-project.jar` file that will be packaged inside the `rpm`.
+
+You can build the rpm by first changing to the `rpm` directory with `cd rpm/` and then running `mvn clean package -f rpm.pom.xml`. This will create an `.rpm` file under `target/rpm/com.teragrep-example-rpm-project/RPMS/noarch/` that contains the java artifact and any files under `aux/` directory.
+
+You can observe the contents of the produced `.rpm` with the following command: `rpm --query --package --list --verbose path/to/the/example-rpm-project.rpm`.
+
+The file listing should look like this:
+
+.Output of `rpm --query --package --list --verbose example-rpm-project.rpm`
+[source]
+----
+drw-r--r--    2 root     root         0 Feb 19 14:36 /opt/teragrep/example-rpm-project/aux
+-rw-r--r--    1 root     root        56 Feb 19 14:36 /opt/teragrep/example-rpm-project/aux/extra-aux-file.txt
+drwxr-xr-x    2 root     root         0 Feb 19 14:36 /opt/teragrep/example-rpm-project/lib
+-rwxr-xr-x    1 root     root      2435 Feb 19 14:32 /opt/teragrep/example-rpm-project/lib/example-rpm-project.jar
+----
