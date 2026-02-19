@@ -2,7 +2,7 @@
 
 The goal of this project is to be a minimal example demo for link:../workflows#upload_release_github_attachmentyaml[upload_release_github_attachment.yaml]. The link:rpm/rpm.pom.xml[rpm/rpm.pom.xml] contains examples on how to include the built java artifact from `target/example-rpm-project.jar` and auxiliary files from `rpm/aux/` to different locations with different permissions.
 
-You can build the java artifacts with `mvn clean package` on repository root. This should give you `target/example-rpm-project.jar` file that will be packaged inside the `rpm`.
+You can build the java artifacts with `mvn clean package` on repository root. This should give you `target/example-rpm-project.jar` file that will be packaged inside the `.rpm`.
 
 You can build the rpm by first changing to the `rpm` directory with `cd rpm/` and then running `mvn clean package -f rpm.pom.xml`. This will create an `.rpm` file under `target/rpm/com.teragrep-example-rpm-project/RPMS/noarch/` that contains the java artifact and any files under `aux/` directory.
 
