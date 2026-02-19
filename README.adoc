@@ -50,4 +50,4 @@ Contains example java project that uses mandatory plugins as described above
 
 === rpm-packaging
 
-Contains minimal example java project for link:workflows#upload_release_github_attachmentyaml[upload_release_github_attachment.yaml] that builds java, packages it to rpm and attaches the result rpm to the release
+Contains minimal example java project for link:workflows#upload_release_github_attachmentyaml[upload_release_github_attachment.yaml] that builds the java project and packages it to `.rpm` file, ready to be attached to the release.
