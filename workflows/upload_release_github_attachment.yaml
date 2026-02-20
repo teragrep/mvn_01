@@ -54,7 +54,7 @@ jobs:
           from_version: "${{ github.event.release.tag_name }}"
           to_repository: "${{ github.repository_owner }}/pkg_01"
           deploy_key: ${{ secrets.PKG_01_DEPLOY_KEY }}
-          files: target/rpm/com.teragrep-zep_01/RPMS/x86_64/com.teragrep-zep_01-*.x86_64.rpm
+          files: rpm/target/rpm/com.teragrep-example-name/RPMS/noarch/com.teragrep-example-name-*.noarch.rpm
           gpg_public_key: "${{ secrets.RPM_SIGNING_PUBLIC_KEY }}"
           repo_baseurl: "${{ vars.PKG_01_CENTRAL_BASEURL }}"
         env:
