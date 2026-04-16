@@ -3,7 +3,7 @@ name: CI
 on: [ push ]
 
 jobs:
-  upload:
+  ci:
     name: CI
     runs-on: ubuntu-latest
 
