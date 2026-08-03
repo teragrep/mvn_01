@@ -244,3 +244,27 @@ Example configuration of the filter to exclude all Test directory files and a fi
   </module>
 </module>
 ----
+
+==== How to override used Checkstyle version
+
+You can override used Checkstyle version by explicitly configuring the dependency directly under the plugin. This is sometimes necessary as `maven-checkstyle-plugin` lags behind in version it depends on internally. Do note that the newer versions can depend on higher version of Java and cause it to not be a drop-in upgrade.
+
+.pom.xml
+[source,xml]
+----
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-checkstyle-plugin</artifactId>
+  <version>3.5.0</version>
+  <!-- include this --vvv -->
+  <dependencies>
+    <dependency>
+      <groupId>com.puppycrawl.tools</groupId>
+      <artifactId>checkstyle</artifactId>
+      <version>13.9.0</version>
+    </dependency>
+  </dependencies>
+  <!-- include this --^^^ -->
+  <!-- snip rest -->
+</plugin>
+----
