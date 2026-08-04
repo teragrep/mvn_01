@@ -20,7 +20,14 @@ Documentation and further configuration for each check can be found https://chec
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-checkstyle-plugin</artifactId>
-  <version>3.5.0</version>
+  <version>3.6.0</version>
+  <dependencies>
+    <dependency>
+      <groupId>com.puppycrawl.tools</groupId>
+      <artifactId>checkstyle</artifactId>
+      <version>13.9.0</version>
+    </dependency>
+  </dependencies>
   <executions>
     <!-- These are all errors that will fail the build if triggered -->
     <execution>
@@ -243,30 +250,6 @@ Example configuration of the filter to exclude all Test directory files and a fi
     <property name="fileNamePattern" value="Record\.java$"></property>
   </module>
 </module>
-----
-
-==== How to override used Checkstyle version
-
-You can override used Checkstyle version by explicitly configuring the dependency directly under the plugin. This is sometimes necessary as `maven-checkstyle-plugin` lags behind in the version it depends on internally.
-
-.pom.xml
-[source,xml]
-----
-<plugin>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-checkstyle-plugin</artifactId>
-  <version>3.5.0</version>
-  <!-- include this --vvv -->
-  <dependencies>
-    <dependency>
-      <groupId>com.puppycrawl.tools</groupId>
-      <artifactId>checkstyle</artifactId>
-      <version>13.9.0</version>
-    </dependency>
-  </dependencies>
-  <!-- include this --^^^ -->
-  <!-- snip rest -->
-</plugin>
 ----
 
 ===== Supported versions
