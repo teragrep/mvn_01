@@ -10,7 +10,7 @@ Focuses on best practices for code and not stylistic formatting as that is done 
 
 Checks are automatically done once included to project.
 
-Documentation and further configuration for each check can be found https://checkstyle.org/checks.html[in their documentation]
+Documentation and further configuration for each check can be found https://checkstyle.org/checks.html[in their documentation]. See <<Supported versions>> for information.
 
 === Add the following to pom.xml
 
