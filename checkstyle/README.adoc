@@ -247,7 +247,7 @@ Example configuration of the filter to exclude all Test directory files and a fi
 
 ==== How to override used Checkstyle version
 
-You can override used Checkstyle version by explicitly configuring the dependency directly under the plugin. This is sometimes necessary as `maven-checkstyle-plugin` lags behind in the version it depends on internally. Do note that the newer versions can depend on higher version of Java and cause it to not be a drop-in upgrade.
+You can override used Checkstyle version by explicitly configuring the dependency directly under the plugin. This is sometimes necessary as `maven-checkstyle-plugin` lags behind in the version it depends on internally.
 
 .pom.xml
 [source,xml]
@@ -267,4 +267,56 @@ You can override used Checkstyle version by explicitly configuring the dependenc
   <!-- include this --^^^ -->
   <!-- snip rest -->
 </plugin>
+----
+
+===== Supported versions
+
+See https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle/versions[maven central] for newest versions and https://checkstyle.sourceforge.io/#JRE_and_JDK[checkstyle homepage] for their support status.
+
+.Java 21+
+[source,xml]
+----
+<dependencies>
+  <dependency>
+    <groupId>com.puppycrawl.tools</groupId>
+    <artifactId>checkstyle</artifactId>
+    <version>13.9.0</version>
+  </dependency>
+</dependencies>
+----
+
+.Java 17
+[source,xml]
+----
+<dependencies>
+  <dependency>
+    <groupId>com.puppycrawl.tools</groupId>
+    <artifactId>checkstyle</artifactId>
+    <version>12.3.1</version>
+  </dependency>
+</dependencies>
+----
+
+.Java 11
+[source,xml]
+----
+<dependencies>
+  <dependency>
+    <groupId>com.puppycrawl.tools</groupId>
+    <artifactId>checkstyle</artifactId>
+    <version>10.26.1</version>
+  </dependency>
+</dependencies>
+----
+
+.Java 8
+[source,xml]
+----
+<dependencies>
+  <dependency>
+    <groupId>com.puppycrawl.tools</groupId>
+    <artifactId>checkstyle</artifactId>
+    <version>9.3</version>
+  </dependency>
+</dependencies>
 ----
