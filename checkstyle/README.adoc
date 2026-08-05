@@ -10,7 +10,7 @@ Focuses on best practices for code and not stylistic formatting as that is done 
 
 Checks are automatically done once included to project.
 
-Documentation and further configuration for each check can be found https://checkstyle.org/checks.html[in their documentation]
+Documentation and further configuration for each check can be found link:https://checkstyle.org/checks.html[in their documentation]. See <<Supported versions>> for compatibility information.
 
 === Add the following to pom.xml
 
@@ -20,7 +20,14 @@ Documentation and further configuration for each check can be found https://chec
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-checkstyle-plugin</artifactId>
-  <version>3.5.0</version>
+  <version>3.6.0</version>
+  <dependencies>
+    <dependency>
+      <groupId>com.puppycrawl.tools</groupId>
+      <artifactId>checkstyle</artifactId>
+      <version>13.9.0</version>
+    </dependency>
+  </dependencies>
   <executions>
     <!-- These are all errors that will fail the build if triggered -->
     <execution>
@@ -243,4 +250,58 @@ Example configuration of the filter to exclude all Test directory files and a fi
     <property name="fileNamePattern" value="Record\.java$"></property>
   </module>
 </module>
+----
+
+===== Supported versions
+
+See link:https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle/versions[Checkstyle Maven Central versions] or link:https://github.com/checkstyle/checkstyle/releases[Checkstyle GitHub releases] for more information about new releases.
+
+Support matrix for different Java versions can be found on link:https://checkstyle.sourceforge.io/#JRE_and_JDK[Checkstyle homepage].
+
+.Java 21+
+[source,xml]
+----
+<dependencies>
+  <dependency>
+    <groupId>com.puppycrawl.tools</groupId>
+    <artifactId>checkstyle</artifactId>
+    <version>13.9.0</version>
+  </dependency>
+</dependencies>
+----
+
+.Java 17
+[source,xml]
+----
+<dependencies>
+  <dependency>
+    <groupId>com.puppycrawl.tools</groupId>
+    <artifactId>checkstyle</artifactId>
+    <version>12.3.1</version>
+  </dependency>
+</dependencies>
+----
+
+.Java 11
+[source,xml]
+----
+<dependencies>
+  <dependency>
+    <groupId>com.puppycrawl.tools</groupId>
+    <artifactId>checkstyle</artifactId>
+    <version>10.26.1</version>
+  </dependency>
+</dependencies>
+----
+
+.Java 8
+[source,xml]
+----
+<dependencies>
+  <dependency>
+    <groupId>com.puppycrawl.tools</groupId>
+    <artifactId>checkstyle</artifactId>
+    <version>9.3</version>
+  </dependency>
+</dependencies>
 ----
