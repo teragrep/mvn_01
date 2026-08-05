@@ -10,7 +10,7 @@ Focuses on best practices for code and not stylistic formatting as that is done 
 
 Checks are automatically done once included to project.
 
-Documentation and further configuration for each check can be found link:https://checkstyle.org/checks.html[in their documentation]. See <<Supported versions>> for more information about compatibility between Checkstyle and different Java versions.
+Documentation and further configuration for each check can be found link:https://checkstyle.org/checks.html[in their documentation]. See <<Supported versions>> for compatibility information.
 
 === Add the following to pom.xml
 
@@ -254,7 +254,9 @@ Example configuration of the filter to exclude all Test directory files and a fi
 
 ===== Supported versions
 
-See link:https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle/versions[Maven Central] or link:https://github.com/checkstyle/checkstyle/releases[Checkstyle GitHub] for new Checkstyle releases and link:https://checkstyle.sourceforge.io/#JRE_and_JDK[Checkstyle homepage] for more information about supported Java versions.
+See link:https://mvnrepository.com/artifact/com.puppycrawl.tools/checkstyle/versions[Checkstyle Maven Central versions] or link:https://github.com/checkstyle/checkstyle/releases[Checkstyle GitHub releases] for more information about new releases.
+
+Support matrix for different Java versions can be found on link:https://checkstyle.sourceforge.io/#JRE_and_JDK[Checkstyle homepage].
 
 .Java 21+
 [source,xml]
