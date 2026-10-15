@@ -1,4 +1,4 @@
-= Github workflows
+= GitHub workflows
 
 Reference upstream workflows documentation can be found link:https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows[here].
 
@@ -12,17 +12,32 @@ You might have to customize java version and maven arguments depending on the pr
 
 Adds automatic Coverity uploading.
 
-Requires the following settings to be enabled for the repository:
+Requires the following settings to be present in the repository:
 
-vars:
+Actions variables:
 
- - COVERITY_PROJECT_URL_ID (Project id, for example 12345, can be found when submitting a new build)
+* COVERITY_PROJECT_URL_ID
+** Project id, for example `12345`, can be found:
+*** From the cURL code snippets when submitting a new build
+*** Project Settings -> Coverity Scan Badge HTML code snippet
 
-Secrets:
+Actions secrets:
 
-  - COVERITY_TOKEN
+* COVERITY_TOKEN
+** Only visible to project admins
 
-Rest of the secrets and environment comes from the organization and do not need to be set here.
+The rest of the secrets and environment comes from the organization and do not need to be set here.
+
+=== Verification
+
+The variables and secrets can be verified from the link:coverity.yaml[coverity.yaml] Action's `Download and extract Coverity distribution if cache-miss` step's --post-data arguments:
+
+[source,shell]
+----
+wget https://scan.coverity.com/download/linux64 --post-data "token=***&project_id=12345&md5=1" -O coverity_tool.md5
+----
+
+If the `COVERITY_TOKEN` secret is missing, the value will be empty instead of three asterisks
 
 == publish_pages_from_docs.yaml
 
