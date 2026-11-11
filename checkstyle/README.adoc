@@ -83,6 +83,7 @@ Documentation and further configuration for each check can be found https://chec
               <module name="StringLiteralEquality"></module>
               <module name="SuperClone"></module>
               <module name="SuperFinalize"></module>
+              <module name="SuppressionCommentFilter"></module>
               <module name="TypeName"></module>
               <module name="UpperEll"></module>
               <module name="VisibilityModifier">
