@@ -7,7 +7,7 @@
 '/home/runner/work/mvn_01/mvn_01/example-javadoc-doxygen-project/src/main/java:/home/runner/work/mvn_01/mvn_01/example-javadoc-doxygen-project/target/generated-sources/annotations'
 -author
 -bottom
-'Copyright &#169; 2025. All rights reserved.'
+'Copyright &#169; 1980. All rights reserved.'
 -charset
 'UTF-8'
 -d
@@ -18,6 +18,7 @@
 'mvn_01 0.0.1-SNAPSHOT API'
 -linkoffline
 'https://docs.oracle.com/en/java/javase/11/docs/api' '/home/runner/work/mvn_01/mvn_01/example-javadoc-doxygen-project/target/javadoc-bundle-options'
+-notimestamp
 -use
 -version
 -windowtitle
